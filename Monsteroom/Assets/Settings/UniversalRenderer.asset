@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9028571980706313832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fad8666a09c544c8bc726f7e67c65d, type: 3}
+  m_Name: Volumetric Clouds
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    material: {fileID: 2100000, guid: d3fdc13b780a1a5478716810a3c5f21d, type: 2}
+    renderPassEvent: 400
+    color: {r: 0.46226418, g: 0.40274814, b: 0.29000536, a: 1}
+    alpha: 1
+    BoundsMin: {x: -800, y: -30, z: -800}
+    BoundsMax: {x: 800, y: 0, z: 800}
+    RenderDistance: 1000
+  cloudSettings:
+    Steps: 15
+    LightSteps: 10
+    CloudNoiseTexure: {fileID: 2800000, guid: 9ceeaff9aaddc9b47aae3303c6d8e7a8, type: 3}
+    CloudScale: 2
+    CloudSmooth: 3
+    Wind: {x: 0, y: 0, z: -1}
+    LightAbsorptionThroughCloud: 0.12
+    PhaseParams: {x: 0.1, y: 0.25, z: 0.5, w: 0}
+    ContainerEdgeFadeDst: 45
+    DensityThreshold: 0.2
+    DensityMultiplier: 1
+    LightAbsorptionTowardSun: 0.25
+    DarknessThreshold: 0.1
+  detailCloudSettings:
+    detailCloudWeight: 0.24
+    DetailCloudNoiseTexure: {fileID: 11700000, guid: 1fd56022498a5384281f6aa77c02e0a1, type: 2}
+    DetailCloudScale: 1
+    DetailCloudWind: {x: -1.27, y: 0, z: 0}
+  blueNoiseSettings:
+    BlueNoiseTexure: {fileID: 0}
+    RayOffsetStrength: 50
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,8 +58,9 @@ MonoBehaviour:
   debugShaders:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: -9028571980706313832}
+  m_RendererFeatureMap: 9889f4749e11b482
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
