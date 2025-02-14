@@ -15,6 +15,6 @@ public class SceneObjectBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(MovingDir * Speed * Time.deltaTime, Space.World);
+        transform.Translate(MovingDir * SpeedManager.Instance.Speed * Time.deltaTime, Space.World);
     }
 }
