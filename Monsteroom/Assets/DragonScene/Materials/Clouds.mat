@@ -50,10 +50,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CloudsAlpha: 1.5
-    - _CloudsPower: 0.15
-    - _CloudsScale: 500
-    - _DistortScale: 294.7
+    - _CloudsAlpha: 0.81
+    - _CloudsPower: 0.42
+    - _CloudsScale: 50
+    - _DistortScale: 10
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WaveHeight: 0.001
