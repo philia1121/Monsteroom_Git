@@ -16,7 +16,7 @@ MonoBehaviour:
   settings:
     material: {fileID: 2100000, guid: d3fdc13b780a1a5478716810a3c5f21d, type: 2}
     renderPassEvent: 400
-    color: {r: 0.46226418, g: 0.40274814, b: 0.29000536, a: 1}
+    color: {r: 0.17755431, g: 0.24786405, b: 0.2830189, a: 1}
     alpha: 1
     BoundsMin: {x: -800, y: -30, z: -800}
     BoundsMax: {x: 800, y: 0, z: 800}

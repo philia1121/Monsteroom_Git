@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
   threshold:
     m_OverrideState: 1
     m_Value: 1
@@ -31,9 +34,12 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
-  skipIterations:
+  downscale:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -56,7 +62,7 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.7264151, g: 0.38999942, b: 0.14733891, a: 1}
+    m_Value: {r: 0.25952297, g: 0.38629404, b: 0.6792453, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
@@ -101,3 +107,27 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 0
+  neutralHDRRangeReductionMode:
+    m_OverrideState: 0
+    m_Value: 2
+  acesPreset:
+    m_OverrideState: 0
+    m_Value: 3
+  hueShiftAmount:
+    m_OverrideState: 0
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 0
+    m_Value: 300
+  detectBrightnessLimits:
+    m_OverrideState: 0
+    m_Value: 1
+  minNits:
+    m_OverrideState: 0
+    m_Value: 0.005
+  maxNits:
+    m_OverrideState: 0
+    m_Value: 1000
