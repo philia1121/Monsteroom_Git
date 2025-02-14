@@ -9,7 +9,7 @@ public class SpeedManager : MonoBehaviour
     public float Speed { get; private set;} = 5f;
     [SerializeField]private float speedMax, speedMin;
     [SerializeField]private float dashDuration;
-    [SerializeField]private float transitionDuration;
+    [SerializeField]private float lerpDuration;
     Coroutine speedChangeRoutine;
     void Awake()
     {
@@ -24,11 +24,11 @@ public class SpeedManager : MonoBehaviour
     } 
     IEnumerator SpeedBoostRoutine()
     {
-        yield return ChangeSpeed(8f, 2f); 
+        yield return ChangeSpeed(speedMax, lerpDuration); 
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(dashDuration);
 
-        yield return ChangeSpeed(5f, 2f);
+        yield return ChangeSpeed(speedMin, lerpDuration);
     }
 
     private IEnumerator ChangeSpeed(float targetSpeed, float duration)
