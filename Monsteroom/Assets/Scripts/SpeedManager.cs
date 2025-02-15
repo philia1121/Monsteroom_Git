@@ -6,8 +6,11 @@ using UnityEngine.Rendering;
 public class SpeedManager : MonoBehaviour
 {
     public static SpeedManager Instance { get; private set;}
-    public float Speed { get; private set;} = 5f;
+    [SerializeField]private float speed = 5f;
+    public float Speed { get{ return speed;}}
     [SerializeField]private float speedMax, speedMin;
+    public float SpeedMax { get { return speedMax;}} 
+    public float SpeedMin { get { return speedMin;}}
     [SerializeField]private float dashDuration;
     [SerializeField]private float lerpDuration;
     Coroutine speedChangeRoutine;
@@ -33,15 +36,15 @@ public class SpeedManager : MonoBehaviour
 
     private IEnumerator ChangeSpeed(float targetSpeed, float duration)
     {
-        float startSpeed = Speed;
+        float startSpeed = speed;
         float time = 0f;
 
         while (time < duration)
         {
             time += Time.deltaTime;
-            Speed = Mathf.Lerp(startSpeed, targetSpeed, time / duration);
+            speed = Mathf.Lerp(startSpeed, targetSpeed, time / duration);
             yield return null;
         }
-        Speed = targetSpeed;
+        speed = targetSpeed;
     }
 }

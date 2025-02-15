@@ -16,6 +16,7 @@ public class SceneObjectManager : MonoBehaviour
     [Header("Pool Settings")]
     [Tooltip("生成開關 //沒事可以不要動它")]public bool Spawn = true;
     [Tooltip("場景物件 隨機生成的參考座標 \n 共4個,前兩個是鏡頭偏左,後兩個是鏡頭偏右,避免生成的物件穿過鏡頭")]public Transform[] RefTransforms;
+    public Transform[] InitializeRefTransforms;
     [Tooltip("場景物件 隨機尺寸大小值")]public float SizeMin, SizeMax;
     [Tooltip("初始可見的場景物件數量")]public int initialAmount = 10;
     [Tooltip("隨機生成間隔大小值(秒)")]public float SpawnTimeMin, SpawnTimeMax;
@@ -81,16 +82,19 @@ public class SceneObjectManager : MonoBehaviour
         for(int i = 0; i < initialAmount; i++)
         {
             var obj = GetPooledObject();
-            SetObjectActive(obj);
+            SetObjectActive(obj, true);
         }
     }
 
-    void SetObjectActive(GameObject m_obj)
+    void SetObjectActive(GameObject m_obj, bool initialize = false)
     {
         bool refGroup = (Random.Range(0, 1f) > 0.5f)? true : false;
-        var pos1 = refGroup? RefTransforms[0].position: RefTransforms[2].position;
-        var pos2 = refGroup? RefTransforms[1].position: RefTransforms[3].position;
-        Vector3 spawnPos = new Vector3(Random.Range(pos1.x, pos2.x), Random.Range(pos1.y, pos2.y), Random.Range(pos1.z, 0));
+        var m_refTransforms = initialize? InitializeRefTransforms: RefTransforms;
+        var pos1 = refGroup? m_refTransforms[0].position: m_refTransforms[2].position;
+        var pos2 = refGroup? m_refTransforms[1].position: m_refTransforms[3].position;
+        
+        
+        Vector3 spawnPos = new Vector3(Random.Range(pos1.x, pos2.x), Random.Range(pos1.y, pos2.y), Random.Range(pos1.z, pos2.z));
 
         m_obj.transform.position = spawnPos;
         m_obj.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360f), 0));

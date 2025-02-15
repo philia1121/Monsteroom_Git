@@ -7,12 +7,14 @@ public class PlayerControlManager : MonoBehaviour
     public Transform LH, RH;
 
     [Header("Turning Settings")]
-    public Transform ScenePlane;
-    public float turnSensitivity = 2.0f;
+    public bool WorldOrientation = false;
+    public Transform TurningObject;
+    public float turnSensitivity = 25f;
 
     [Header("Acceleration Settings")]
     public float Swing_Threshold = 1.2f;
     public float Acceleration_Threshold = 5f;
+    public bool RequireBothHand = true;
     Vector3 lastPos_LH, lastPos_RH;
     float lastSpeed_LH, lastSpeed_RH;
     
@@ -31,10 +33,13 @@ public class PlayerControlManager : MonoBehaviour
 
     void CheckForRotation()
     {
-        float turnAmount = (LH.position.z - RH.position.z) * turnSensitivity;
-        turnAmount = Mathf.Clamp(turnAmount, -45f, 45f);
+        if(WorldOrientation)
+        {
+            float turnAmount = (LH.position.z - RH.position.z) * turnSensitivity;
+            turnAmount = Mathf.Clamp(turnAmount, -45f, 45f);
 
-        ScenePlane.Rotate(Vector3.up * turnAmount * Time.deltaTime);
+            TurningObject.Rotate(Vector3.up * turnAmount * Time.deltaTime);
+        }
     }
 
     void CheckForAcceleration()
@@ -53,10 +58,19 @@ public class PlayerControlManager : MonoBehaviour
         bool swing_LH = Speed_LH < -Swing_Threshold && acceleration_LH < -Acceleration_Threshold;
         bool swing_RH = Speed_RH < -Swing_Threshold && acceleration_RH < -Acceleration_Threshold;
 
-        if(swing_LH && swing_RH)
+        if(RequireBothHand)
         {
-            Debug.Log("Speed Up");
-            SpeedManager.Instance.SpeedUp();
+            if(swing_LH && swing_RH)
+            {
+                SpeedManager.Instance.SpeedUp();
+            }
+        }
+        else
+        {
+            if(swing_LH || swing_RH)
+            {
+                SpeedManager.Instance.SpeedUp();
+            }
         }
     }
 }
