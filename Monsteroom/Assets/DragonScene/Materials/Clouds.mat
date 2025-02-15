@@ -36,6 +36,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _SampleTexture2D_7c7ab9757ecf468a92965cd17e80137b_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 9ceeaff9aaddc9b47aae3303c6d8e7a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_d76efd2dcc7246268a82b6363e7172b7_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 9ceeaff9aaddc9b47aae3303c6d8e7a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,10 +58,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CloudsAlpha: 0.81
-    - _CloudsPower: 0.42
-    - _CloudsScale: 50
-    - _DistortScale: 10
+    - _CloudsAlpha: 1.8
+    - _CloudsPower: 0.5
+    - _CloudsScale: 0.5
+    - _DistortScale: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WaveHeight: 0.001
@@ -61,7 +69,9 @@ Material:
     - _WaveSpeedX: -0.3
     - _WaveSpeedY: -1.13
     m_Colors:
-    - _CloudsColor: {r: 0.7830189, g: 0.6822198, b: 0.5281684, a: 1}
-    - _CloudsSpeed: {r: 0, g: 0.01, b: 0, a: 0}
-    - _DistortSpeed: {r: 0, g: 0.02, b: 0, a: 0}
+    - _CloudScale1: {r: 4, g: 4, b: 0, a: 0}
+    - _CloudsColor: {r: 1.1618892, g: 1.202841, b: 1.276272, a: 1}
+    - _CloudsSpeed: {r: 0, g: 0.13, b: 0, a: 0}
+    - _DistortScale1: {r: 2, g: 2, b: 0, a: 0}
+    - _DistortSpeed: {r: 0, g: 0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
