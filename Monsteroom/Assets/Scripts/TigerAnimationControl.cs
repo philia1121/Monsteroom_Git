@@ -10,7 +10,7 @@ public class TigerAnimationControl : MonoBehaviour
     int IsMoving_Hash;
     void Awake()
     {   
-        MovingSpeed_Hash = Animator.StringToHash("MovingSpeed");
+        MovingSpeed_Hash = Animator.StringToHash("MoveSpeed");
         IsMoving_Hash = Animator.StringToHash("IsMoving");
     }
     void Update()
