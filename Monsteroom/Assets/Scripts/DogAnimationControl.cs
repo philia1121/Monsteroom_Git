@@ -15,6 +15,7 @@ public class DogAnimationControl : MonoBehaviour
     void Update()
     {
         SetMovingingSpeed();
+        ForShots();
     }
 
     void SetMovingingSpeed()
@@ -22,5 +23,16 @@ public class DogAnimationControl : MonoBehaviour
         var ins = SpeedManager.Instance;
         var speed = (ins.Speed - ins.SpeedMin) / (ins.SpeedMax - ins.SpeedMin);
         animator.SetFloat(MovingSpeed_Hash, speed);
+    }
+    void ForShots()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetTrigger("Yawn");
+        }
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetBool("IsSleeping", !animator.GetBool("IsSleeping"));
+        }
     }
 }
