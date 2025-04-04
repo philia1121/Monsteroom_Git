@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    public string targetTag = "scene";
-    public bool ToDestroy = false;
+    [SerializeField]private string targetTag = "scene";
+    [SerializeField]private bool toDestroy = false;
     void OnTriggerEnter(Collider other)
     {
         // Debug.Log("Enter");
         if(other.gameObject.tag == targetTag)
         {
-            if(ToDestroy)
+            if(toDestroy)
             {
                 Destroy(other.gameObject);
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DogAnimationControl : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField]private Animator animator;
     int MovingSpeed_Hash;
     int IsMoving_Hash;
     void Awake()

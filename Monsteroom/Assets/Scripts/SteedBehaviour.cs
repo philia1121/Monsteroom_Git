@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SteedBehaviour : MonoBehaviour
 {
-    public CharacterController controller;
-    public Transform RH;
+    [SerializeField]private CharacterController controller;
+    [SerializeField]private Transform RH;
     // Update is called once per frame
     void Update()
     {

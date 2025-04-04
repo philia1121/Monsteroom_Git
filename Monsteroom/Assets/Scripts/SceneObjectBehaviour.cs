@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SceneObjectBehaviour : MonoBehaviour
 {
-    public float Speed;
-    public Vector3 MovingDir = Vector3.zero;
+    [SerializeField]private float Speed;
+    [SerializeField]private Vector3 MovingDir = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
