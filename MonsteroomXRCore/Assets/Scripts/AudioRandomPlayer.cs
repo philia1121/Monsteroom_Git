@@ -7,6 +7,7 @@ public class AudioRandomPlayer : MonoBehaviour
     [SerializeField]private AudioSource audioSource;
     [SerializeField]private AudioClip[] audioClips;
     [SerializeField]private float minInterval, maxInterval;
+    [SerializeField]private bool keepRandomPlay = false;
     bool randomPlay;
     IEnumerator cor;
 
@@ -32,6 +33,7 @@ public class AudioRandomPlayer : MonoBehaviour
             yield return new WaitForSeconds(interval);
             if(randomPlay)
                 PlaySound();
+            if(!keepRandomPlay) randomPlay = false;
         }
     }
     void PlaySound()
