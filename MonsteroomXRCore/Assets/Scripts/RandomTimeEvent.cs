@@ -6,8 +6,10 @@ public class RandomTimeEvent : MonoBehaviour
 {
     [SerializeField] private float minInterval, maxInterval;
     [SerializeField] private bool keepRandom = true;
-    [SerializeField] private bool showLog = false;
+    
+    [Header("Event Settings")]
     public UnityEvent RandomTriggerEvent;
+    [SerializeField]private bool showLog = false;
     bool doRandom;
     IEnumerator cor;
 
