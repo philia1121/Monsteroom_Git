@@ -8,7 +8,7 @@ public class SimpleAudioPlayer : MonoBehaviour
     [SerializeField]private AudioClip[] audioClips;
     public void PlayAudio_RandomPick()
     {
-        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.clip = audioClips[audioClips.Length == 1? 0 : Random.Range(0, audioClips.Length)];
         if(audioSource.clip != null && !audioSource.isPlaying) audioSource.Play();
     }
     public void PlayAudio_Assigned(AudioClip clip)
