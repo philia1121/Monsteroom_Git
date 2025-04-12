@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ControllerHaptic : MonoBehaviour
 {
+    [SerializeField]private bool active = true;
     [SerializeField]private float duration = 1;
     [Range(0, 1)][SerializeField]private float amplitude = 1;
     [SerializeField]private OVRInput.Controller targetController;
@@ -14,6 +15,7 @@ public class ControllerHaptic : MonoBehaviour
 
     public void Rumble()
     {
+        if(!active) return;
         if(cor != null) StopCoroutine(cor);
         cor = SetHaptic();
         StartCoroutine(cor);
@@ -44,5 +46,6 @@ public class ControllerHaptic : MonoBehaviour
     }
 
     public void SetRumbleDuration(float value){ duration = value;}
-    public void SetRumbleaAmplitude(float value){ duration = value;}
+    public void SetRumbleaAmplitude(float value){ amplitude = value;}
+    public void SetRumbleCallActive(bool value){ active = value;}
 }

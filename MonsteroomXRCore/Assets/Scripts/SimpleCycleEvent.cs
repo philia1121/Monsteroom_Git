@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class SimpleCycleEvent : MonoBehaviour
 {
-    [Header("Event Settings")]
     [SerializeField]private bool onAwake;
     public UnityEvent OnAwakeEvent;
     [SerializeField]private bool onStart;

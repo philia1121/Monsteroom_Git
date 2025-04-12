@@ -9,6 +9,7 @@ public class StrollMonitor : MonoBehaviour
     [SerializeField]private float minDistanceThreshold = 0.01f;
     [SerializeField]private float distanceThreshold = 3;
 
+    [Header("Event Settings")]
     [SerializeField]private UnityEvent ReachDistanceEvent;
     [SerializeField]private UnityEvent IdlingEvet;
 
