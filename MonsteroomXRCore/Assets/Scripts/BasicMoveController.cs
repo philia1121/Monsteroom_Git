@@ -4,14 +4,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class BasicMoveController : MonoBehaviour
 {
     CharacterController controller;
     [SerializeField]private float moveSpeed = 5;
     [SerializeField]private float rotateSpeed = 5;
-    Vector3 moveDir;
-    [SerializeField]private bool reverseX, reverseZ;
+    Vector3 moveDir, faceDir;
+    [SerializeField]private bool reverseX, reverseZ, reverseFacing;
+
+
+    [Header("")]
+    public UnityEvent StartMovingEvent, StopMovingEvent;
+    bool wasMoving;
+
     ControlMap controlMap;
     void Awake()
     {
@@ -44,7 +51,7 @@ public class BasicMoveController : MonoBehaviour
     }
     public void Start()
     {
-        
+        wasMoving = false;
     }
     void Update()
     {
@@ -54,17 +61,28 @@ public class BasicMoveController : MonoBehaviour
 
     void MoveControl(InputAction.CallbackContext ctx)
     {
-        Vector2 value = ctx.ReadValue<Vector2>(); 
+        Vector2 value = ctx.ReadValue<Vector2>();
+
+        // var isMoving = (value != Vector2.zero);
+        // if(wasMoving != isMoving)
+        // {
+        //     if(isMoving)
+        //         StartMovingEvent.Invoke();
+        //     else
+        //         StopMovingEvent.Invoke();
+        // }
+        // wasMoving = isMoving;
+
         var reX = reverseX? -1 : 1; 
         var reZ = reverseZ? -1 : 1;
-        moveDir = new Vector3(value.x* reX, 0, value.y* reZ).normalized;   
+        moveDir = new Vector3(value.x* reX, 0, value.y* reZ).normalized;
     }
 
     void HandleRotation()
     {
         if(moveDir.magnitude <= 0)  return;
         
-        var facing = moveDir;
+        var facing = moveDir*-1;
         facing.y = 0;
 
         Quaternion current = this.transform.rotation;
@@ -79,5 +97,6 @@ public class BasicMoveController : MonoBehaviour
         {
             transform.rotation = target;
         }
+        Debug.Log("Do Rotate");
     }
 }

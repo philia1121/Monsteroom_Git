@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202404822
 Transform:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &265873221
 Transform:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &324095371
 Transform:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95d46ea4b0553d43b0a309b1605369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2126561388}
+  target: {fileID: 1229127247}
   follower: {fileID: 324095371}
   alignPosition: 1
   alignRotation: 0
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &530262499
 Transform:
   m_ObjectHideFlags: 0
@@ -934,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542251499}
   - component: {fileID: 542251500}
+  - component: {fileID: 542251501}
   m_Layer: 0
   m_Name: bgPet Parent Rotation
   m_TagString: Untagged
@@ -969,10 +970,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95d46ea4b0553d43b0a309b1605369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2126561388}
+  target: {fileID: 1229127247}
   follower: {fileID: 542251499}
   alignPosition: 0
   alignRotation: 1
+--- !u!114 &542251501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542251498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Change your pet model position offset here using Transform.Position.
+
+    POSITION
+    OFFSET ONLY.'
 --- !u!1 &561701052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
@@ -1036,6 +1053,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 542251499}
     m_Modifications:
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1075,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_Name
       value: bgPet Prefab
@@ -1099,7 +1132,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1877378751}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1877378747}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877378750}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877378749}
   m_SourcePrefab: {fileID: 100100000, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
 --- !u!4 &608779840 stripped
 Transform:
@@ -1413,7 +1455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697177932}
   - component: {fileID: 697177934}
-  - component: {fileID: 697177933}
+  - component: {fileID: 697177935}
   m_Layer: 0
   m_Name: Feeding
   m_TagString: Untagged
@@ -1436,23 +1478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 821274683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &697177933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697177931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showFiredText: 0
-  key: 0
-  HotKeyEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &697177934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1490,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce7a771b69ade34f9510213ef3c2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjects: []
+  gameObjects:
+  - {fileID: 1774232825}
+  - {fileID: 1504557024}
+--- !u!114 &697177935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697177931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969f30a9e76ab424a98f89a59939c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStartTimer: 0
+  StartTimerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndTimer: 1
+  EndTimerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1877378751}
+        m_TargetAssemblyTypeName: SimpleAnimatorManager, Assembly-CSharp
+        m_MethodName: SetAnimatorBool_False
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+  showLog: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1691,7 @@ MonoBehaviour:
   active: 1
   duration: 1
   amplitude: 1
-  targetController: 0
+  targetController: 2
 --- !u!1 &789764635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &821274683
 Transform:
   m_ObjectHideFlags: 0
@@ -1788,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &980652123
 Transform:
   m_ObjectHideFlags: 0
@@ -1811,7 +1871,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980652122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
   m_Name: 
@@ -1854,7 +1914,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1728615731}
         m_TargetAssemblyTypeName: SimpleAudioPlayer, Assembly-CSharp
-        m_MethodName: PlayAudio_RandomPick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2009,7 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f0540b20-dfd6-420e-b20d-c270f88dc77e
-  instanceId: d087ecbf-dbf7-4c52-a430-7b3585109b21
+  instanceId: e8ca42d7-a17b-424c-ba56-01ffbcc4d096
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -2039,7 +2099,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1114356720}
   - component: {fileID: 1114356721}
-  - component: {fileID: 1114356722}
   m_Layer: 0
   m_Name: smPet-Parent Rotation
   m_TagString: Untagged
@@ -2079,84 +2138,6 @@ MonoBehaviour:
   follower: {fileID: 0}
   alignPosition: 0
   alignRotation: 1
---- !u!114 &1114356722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114356719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'Change your pet model position offset here using Transform.Position.
-
-    POSITION
-    OFFSET ONLY.'
---- !u!1001 &1128901804
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1470918616}
-    m_Modifications:
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_Name
-      value: AutoExit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
---- !u!4 &1128901805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-  m_PrefabInstance: {fileID: 1128901804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158821944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2237,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
+--- !u!114 &1160140294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8232174605863732621, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
+  m_PrefabInstance: {fileID: 1160140293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504557024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18de2a8b9fc16a34087e18c6acb18193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1176136229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,7 +2321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1191103419
 Transform:
   m_ObjectHideFlags: 0
@@ -2352,7 +2344,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191103418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
   m_Name: 
@@ -2440,7 +2432,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1877378748}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2478,7 +2470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1206171676
 Transform:
   m_ObjectHideFlags: 0
@@ -2733,7 +2725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330210559}
   - component: {fileID: 1330210561}
-  - component: {fileID: 1330210560}
+  - component: {fileID: 1330210562}
   m_Layer: 0
   m_Name: Feeding
   m_TagString: Untagged
@@ -2756,23 +2748,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1388646928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1330210560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330210558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showFiredText: 0
-  key: 0
-  HotKeyEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1330210561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,7 +2760,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce7a771b69ade34f9510213ef3c2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjects: []
+  gameObjects:
+  - {fileID: 1591460428}
+  - {fileID: 1504557024}
+  - {fileID: 726068830}
+--- !u!114 &1330210562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330210558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969f30a9e76ab424a98f89a59939c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStartTimer: 0
+  StartTimerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndTimer: 1
+  EndTimerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1463677645}
+        m_TargetAssemblyTypeName: SimpleAnimatorManager, Assembly-CSharp
+        m_MethodName: SetAnimatorBool_False
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+  showLog: 0
 --- !u!1 &1388646927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,7 +2812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1388646928
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,7 +2885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1456543547
 Transform:
   m_ObjectHideFlags: 0
@@ -3880,13 +3891,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1463677645}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1463677642}
-    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463677643}
-    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463677644}
   m_SourcePrefab: {fileID: 100100000, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
 --- !u!4 &1463677640 stripped
 Transform:
@@ -3994,7 +4002,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1463677643
+--- !u!114 &1463677645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4003,26 +4011,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 561701052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ad976e2902b1454098a0c996696cdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Notes: 'Change your pet model rotation offset here using Transform.Rotation.
-
-    ROTATION
-    OFFSET ONLY.'
---- !u!114 &1463677644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561701052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: Change Transform.Scale to your liking.
+  myAnimator: {fileID: 1463677641}
 --- !u!1 &1470918615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,7 +4044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1128901805}
+  - {fileID: 1978131284}
   - {fileID: 1979069596}
   - {fileID: 726068831}
   - {fileID: 1388646928}
@@ -4077,7 +4069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1480288912
 Transform:
   m_ObjectHideFlags: 0
@@ -4098,6 +4090,11 @@ Transform:
   - {fileID: 404637787}
   m_Father: {fileID: 1844594358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1504557024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8985453363816830562, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
+  m_PrefabInstance: {fileID: 1160140293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589975487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,6 +4105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1589975488}
   - component: {fileID: 1589975489}
+  - component: {fileID: 1589975490}
   m_Layer: 0
   m_Name: FoodPropsParent
   m_TagString: Untagged
@@ -4148,6 +4146,26 @@ MonoBehaviour:
   follower: {fileID: 0}
   alignPosition: 1
   alignRotation: 1
+--- !u!114 &1589975490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589975487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'This is the PetFood, including the pot and the cookie you can pick up.
+
+
+    DON''T
+    TOUCH ANYTHING UNLESS YOU KNOW HOW THIS WORK AND WHAT YOU''RE DOING.
+
+    IF
+    REQUIRE ADJUSTMENT, CONTACT JC.'
 --- !u!1 &1591460428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1591460429
 Transform:
   m_ObjectHideFlags: 0
@@ -4214,7 +4232,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2095543103}
+      - m_Target: {fileID: 1160140294}
         m_TargetAssemblyTypeName: PetFood, Assembly-CSharp
         m_MethodName: PutInPetFood
         m_Mode: 1
@@ -4262,15 +4280,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 726068832}
+        m_TargetAssemblyTypeName: ControllerHaptic, Assembly-CSharp
+        m_MethodName: SetRumbleDuration
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5.7
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 726068832}
+        m_TargetAssemblyTypeName: ControllerHaptic, Assembly-CSharp
+        m_MethodName: Rumble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
           m_StringArgument: IsEating
           m_BoolArgument: 0
         m_CallState: 2
@@ -4283,6 +4313,30 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1463677645}
+        m_TargetAssemblyTypeName: SimpleAnimatorManager, Assembly-CSharp
+        m_MethodName: SetAnimatorBool_True
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1330210562}
+        m_TargetAssemblyTypeName: SimpleTimeEvent, Assembly-CSharp
+        m_MethodName: SetSimpleTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5.7
           m_StringArgument: IsEating
           m_BoolArgument: 0
         m_CallState: 2
@@ -4501,6 +4555,7 @@ GameObject:
   - component: {fileID: 1774232829}
   - component: {fileID: 1774232828}
   - component: {fileID: 1774232827}
+  - component: {fileID: 1774232832}
   m_Layer: 0
   m_Name: FeedRange
   m_TagString: Untagged
@@ -4553,7 +4608,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2095543103}
+      - m_Target: {fileID: 1160140294}
         m_TargetAssemblyTypeName: PetFood, Assembly-CSharp
         m_MethodName: PutInPetFood
         m_Mode: 1
@@ -4601,19 +4656,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1877378745}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsEating
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1314605101}
+      - m_Target: {fileID: 1314605103}
         m_TargetAssemblyTypeName: SimpleAudioPlayer, Assembly-CSharp
         m_MethodName: PlayAudio_RandomPick
         m_Mode: 1
@@ -4622,6 +4665,30 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1877378751}
+        m_TargetAssemblyTypeName: SimpleAnimatorManager, Assembly-CSharp
+        m_MethodName: SetAnimatorBool_True
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
+          m_StringArgument: IsEating
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 697177935}
+        m_TargetAssemblyTypeName: SimpleTimeEvent, Assembly-CSharp
+        m_MethodName: SetSimpleTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5.7
           m_StringArgument: IsEating
           m_BoolArgument: 0
         m_CallState: 2
@@ -4672,7 +4739,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4730,6 +4797,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774232825}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1774232832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774232825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Set all the things that should happened when get feed.
+
+
+    DON''T TOUCH
+    ANYTHING UNLESS YOU KNOW HOW THIS WORK AND WHAT YOU''RE DOING.
+
+    IF REQUIRE
+    ADJUSTMENT, CONTACT JC.'
 --- !u!1 &1813097748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +4988,48 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5208709533717573528, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
   m_PrefabInstance: {fileID: 608779839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877378749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: Change Transform.Scale to your liking.
+--- !u!114 &1877378750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Change your pet model rotation offset here using Transform.Rotation.
+
+    ROTATION
+    OFFSET ONLY.'
+--- !u!114 &1877378751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad976e2902b1454098a0c996696cdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 1877378748}
 --- !u!4 &1915980576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8907808973088994325, guid: f54012181eacade4ea242c65f804720f, type: 3}
@@ -4953,7 +5082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1934012707
 Transform:
   m_ObjectHideFlags: 0
@@ -4986,6 +5115,11 @@ MonoBehaviour:
   modelTransform: {fileID: 1934012707}
   model_initialPos: {x: 0, y: 0, z: 0}
   model_initialRot: {x: 0, y: 0, z: 0}
+--- !u!4 &1978131284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+  m_PrefabInstance: {fileID: 4495472712401146968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1979069595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +5167,7 @@ MonoBehaviour:
   active: 1
   duration: 1
   amplitude: 1
-  targetController: 0
+  targetController: 1
 --- !u!1 &2041734798
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,17 +5301,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5863791022170262643, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
   m_PrefabInstance: {fileID: 1160140293}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2095543103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8232174605863732621, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
-  m_PrefabInstance: {fileID: 1160140293}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18de2a8b9fc16a34087e18c6acb18193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2095543105 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 884881363186562165, guid: 3ac4e9671a37eae4c8dd86ea55d0b891, type: 3}
@@ -5347,14 +5470,13 @@ GameObject:
   - component: {fileID: 2145048504}
   - component: {fileID: 2145048506}
   - component: {fileID: 2145048507}
-  - component: {fileID: 2145048508}
   m_Layer: 0
   m_Name: Petting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2145048503
 Transform:
   m_ObjectHideFlags: 0
@@ -5472,18 +5594,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsPetted
-          m_BoolArgument: 1
-        m_CallState: 2
   IsNotPettingEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5499,35 +5609,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: ResetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsPetted
-          m_BoolArgument: 0
-        m_CallState: 2
   showLog: 1
---- !u!114 &2145048508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145048502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'You can change the MinInterval and MaxInterval in RandomTimeEvent to adjust
-    the random timing.
-
-    DON''T TOUCH ANYTHING ELSE THAN THESE TWO VARIABLE.'
 --- !u!1001 &896108771217963144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5579,6 +5661,10 @@ PrefabInstance:
     - target: {fileID: 3580356115617250593, guid: 06e44e11cbe4dd542b7d2522794d8a9c, type: 3}
       propertyPath: m_Name
       value: 'Hand Follower: R'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580356115617250593, guid: 06e44e11cbe4dd542b7d2522794d8a9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6726752671396756757, guid: 06e44e11cbe4dd542b7d2522794d8a9c, type: 3}
       propertyPath: target
@@ -5641,6 +5727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Hand Follower: L'
       objectReference: {fileID: 0}
+    - target: {fileID: 1621023734486474892, guid: 1e49000cea866f24687fb4788347561a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6885016492365101624, guid: 1e49000cea866f24687fb4788347561a, type: 3}
       propertyPath: target
       value: 
@@ -5650,6 +5740,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e49000cea866f24687fb4788347561a, type: 3}
+--- !u!1001 &4495472712401146968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1470918616}
+    m_Modifications:
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_Name
+      value: AutoExit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202404822
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95d46ea4b0553d43b0a309b1605369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1229127247}
+  target: {fileID: 2126561388}
   follower: {fileID: 265873221}
   alignPosition: 1
   alignRotation: 0
@@ -506,7 +506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &371466047
 Transform:
   m_ObjectHideFlags: 0
@@ -1594,13 +1594,14 @@ GameObject:
   m_Component:
   - component: {fileID: 726068831}
   - component: {fileID: 726068832}
+  - component: {fileID: 726068833}
   m_Layer: 0
   m_Name: 'Haptic: R Touch'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &726068831
 Transform:
   m_ObjectHideFlags: 0
@@ -1631,7 +1632,48 @@ MonoBehaviour:
   active: 1
   duration: 1
   amplitude: 1
-  targetController: 0
+  targetController: 2
+--- !u!114 &726068833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726068830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFiredText: 0
+  key: 121
+  HotKeyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 726068832}
+        m_TargetAssemblyTypeName: ControllerHaptic, Assembly-CSharp
+        m_MethodName: SetRumbleCallActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 726068832}
+        m_TargetAssemblyTypeName: ControllerHaptic, Assembly-CSharp
+        m_MethodName: Rumble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &789764635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &821274683
 Transform:
   m_ObjectHideFlags: 0
@@ -2009,7 +2051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f0540b20-dfd6-420e-b20d-c270f88dc77e
-  instanceId: d087ecbf-dbf7-4c52-a430-7b3585109b21
+  instanceId: e8ca42d7-a17b-424c-ba56-01ffbcc4d096
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -2039,7 +2081,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1114356720}
   - component: {fileID: 1114356721}
-  - component: {fileID: 1114356722}
   m_Layer: 0
   m_Name: smPet-Parent Rotation
   m_TagString: Untagged
@@ -2075,88 +2116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95d46ea4b0553d43b0a309b1605369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1229127247}
-  follower: {fileID: 0}
+  target: {fileID: 2126561388}
+  follower: {fileID: 1114356720}
   alignPosition: 0
   alignRotation: 1
---- !u!114 &1114356722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114356719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'Change your pet model position offset here using Transform.Position.
-
-    POSITION
-    OFFSET ONLY.'
---- !u!1001 &1128901804
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1470918616}
-    m_Modifications:
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: m_Name
-      value: AutoExit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
---- !u!4 &1128901805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 629902878669560591, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-  m_PrefabInstance: {fileID: 1128901804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158821944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,7 +2235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1176136230
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,7 +2441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1206171676
 Transform:
   m_ObjectHideFlags: 0
@@ -2740,7 +2703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1330210559
 Transform:
   m_ObjectHideFlags: 0
@@ -3442,7 +3405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3450,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3462,7 +3425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3881,12 +3844,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1463677642}
-    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463677643}
-    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463677644}
   m_SourcePrefab: {fileID: 100100000, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
 --- !u!4 &1463677640 stripped
 Transform:
@@ -3994,35 +3951,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1463677643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561701052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'Change your pet model rotation offset here using Transform.Rotation.
-
-    ROTATION
-    OFFSET ONLY.'
---- !u!114 &1463677644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561701052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: Change Transform.Scale to your liking.
 --- !u!1 &1470918615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,7 +3980,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1128901805}
   - {fileID: 1979069596}
   - {fileID: 726068831}
   - {fileID: 1388646928}
@@ -4097,6 +4024,39 @@ Transform:
   - {fileID: 74922549}
   - {fileID: 404637787}
   m_Father: {fileID: 1844594358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1538113330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538113331}
+  m_Layer: 0
+  m_Name: BG-------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538113331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538113330}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2041734800}
+  - {fileID: 1846404770}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589975487
 GameObject:
@@ -4168,7 +4128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1591460429
 Transform:
   m_ObjectHideFlags: 0
@@ -4260,18 +4220,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsEating
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1032645285}
@@ -4790,11 +4738,116 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2041734800}
   - {fileID: 1480288912}
   - {fileID: 202404822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1846404769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846404770}
+  - component: {fileID: 1846404773}
+  - component: {fileID: 1846404772}
+  - component: {fileID: 1846404771}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1846404770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846404769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.184, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1538113331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1846404771
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846404769}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1846404772
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846404769}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1846404773
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846404769}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1877378745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
@@ -4953,7 +5006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1934012707
 Transform:
   m_ObjectHideFlags: 0
@@ -5002,7 +5055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1979069596
 Transform:
   m_ObjectHideFlags: 0
@@ -5033,7 +5086,7 @@ MonoBehaviour:
   active: 1
   duration: 1
   amplitude: 1
-  targetController: 0
+  targetController: 1
 --- !u!1 &2041734798
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,7 +5213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1844594358}
+  m_Father: {fileID: 1538113331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2095543102 stripped
 Transform:
@@ -5203,7 +5256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2126561388
 Transform:
   m_ObjectHideFlags: 0
@@ -5235,6 +5288,13 @@ MonoBehaviour:
   rotateSpeed: 7
   reverseX: 0
   reverseZ: 0
+  reverseFacing: 0
+  StartMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  StopMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &2126561390
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5347,7 +5407,6 @@ GameObject:
   - component: {fileID: 2145048504}
   - component: {fileID: 2145048506}
   - component: {fileID: 2145048507}
-  - component: {fileID: 2145048508}
   m_Layer: 0
   m_Name: Petting
   m_TagString: Untagged
@@ -5472,18 +5531,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsPetted
-          m_BoolArgument: 1
-        m_CallState: 2
   IsNotPettingEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5499,35 +5546,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1463677641}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: ResetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsPetted
-          m_BoolArgument: 0
-        m_CallState: 2
   showLog: 1
---- !u!114 &2145048508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145048502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'You can change the MinInterval and MaxInterval in RandomTimeEvent to adjust
-    the random timing.
-
-    DON''T TOUCH ANYTHING ELSE THAN THESE TWO VARIABLE.'
 --- !u!1001 &896108771217963144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5659,6 +5678,7 @@ SceneRoots:
   - {fileID: 631061885}
   - {fileID: 1079149973}
   - {fileID: 1470918616}
+  - {fileID: 1538113331}
   - {fileID: 1844594358}
   - {fileID: 1423547980}
   - {fileID: 1158821945}
