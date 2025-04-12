@@ -1930,10 +1930,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoExit
       objectReference: {fileID: 0}
-    - target: {fileID: 3929201064733151413, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
-      propertyPath: autoExitGame
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2567,7 +2563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1456543547
 Transform:
   m_ObjectHideFlags: 0
@@ -4098,7 +4094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1774232826
 Transform:
   m_ObjectHideFlags: 0
@@ -4706,6 +4702,12 @@ MonoBehaviour:
   rotateSpeed: 7
   reverseX: 0
   reverseZ: 0
+  StartMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  StopMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &2126561390
 CharacterController:
   m_ObjectHideFlags: 0

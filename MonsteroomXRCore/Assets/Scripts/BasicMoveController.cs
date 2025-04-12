@@ -8,11 +8,10 @@ using UnityEngine.Events;
 
 public class BasicMoveController : MonoBehaviour
 {
-    CharacterController controller;
     [SerializeField]private float moveSpeed = 5;
     [SerializeField]private float rotateSpeed = 5;
-    Vector3 moveDir, faceDir;
-    [SerializeField]private bool reverseX, reverseZ, reverseFacing;
+    Vector3 moveDir;
+    [SerializeField]private bool reverseX, reverseZ;
 
 
     [Header("")]
@@ -23,15 +22,6 @@ public class BasicMoveController : MonoBehaviour
     void Awake()
     {
         controlMap = new ControlMap();   
-
-        try
-        {
-            controller = this.GetComponent<CharacterController>();
-        }
-        catch
-        {
-            controller = this.AddComponent<CharacterController>();
-        }
     }
     void OnEnable()
     {
@@ -55,7 +45,7 @@ public class BasicMoveController : MonoBehaviour
     }
     void Update()
     {
-        controller.Move(moveDir* moveSpeed* Time.deltaTime);
+        transform.Translate(moveDir* moveSpeed* Time.deltaTime, Space.World);
         HandleRotation();
     }
 
@@ -63,15 +53,15 @@ public class BasicMoveController : MonoBehaviour
     {
         Vector2 value = ctx.ReadValue<Vector2>();
 
-        // var isMoving = (value != Vector2.zero);
-        // if(wasMoving != isMoving)
-        // {
-        //     if(isMoving)
-        //         StartMovingEvent.Invoke();
-        //     else
-        //         StopMovingEvent.Invoke();
-        // }
-        // wasMoving = isMoving;
+        var isMoving = (value != Vector2.zero);
+        if(wasMoving != isMoving)
+        {
+            if(isMoving)
+                StartMovingEvent.Invoke();
+            else
+                StopMovingEvent.Invoke();
+        }
+        wasMoving = isMoving;
 
         var reX = reverseX? -1 : 1; 
         var reZ = reverseZ? -1 : 1;
@@ -82,7 +72,7 @@ public class BasicMoveController : MonoBehaviour
     {
         if(moveDir.magnitude <= 0)  return;
         
-        var facing = moveDir*-1;
+        var facing = moveDir;
         facing.y = 0;
 
         Quaternion current = this.transform.rotation;
@@ -97,6 +87,5 @@ public class BasicMoveController : MonoBehaviour
         {
             transform.rotation = target;
         }
-        Debug.Log("Do Rotate");
     }
 }
