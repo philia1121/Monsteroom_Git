@@ -823,7 +823,6 @@ GameObject:
   m_Component:
   - component: {fileID: 542251499}
   - component: {fileID: 542251500}
-  - component: {fileID: 542251501}
   m_Layer: 0
   m_Name: bgPet Parent Rotation
   m_TagString: Untagged
@@ -863,22 +862,6 @@ MonoBehaviour:
   follower: {fileID: 542251499}
   alignPosition: 0
   alignRotation: 1
---- !u!114 &542251501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542251498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'Change your pet model position offset here using Transform.Position.
-
-    POSITION
-    OFFSET ONLY.'
 --- !u!1 &561701052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
@@ -942,12 +925,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 542251499}
     m_Modifications:
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -980,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_Name
@@ -1018,6 +1017,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1877378750}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877378752}
   m_SourcePrefab: {fileID: 100100000, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
 --- !u!4 &608779840 stripped
 Transform:
@@ -1890,6 +1892,14 @@ PrefabInstance:
     - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
       propertyPath: m_Name
       value: AutoExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014408204395447883, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: showFiredText
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4411,6 +4421,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 3a98edb9a51bbc145a4db474c8de5b81, type: 2}
     - target: {fileID: 6261686405917588804, guid: f33f335934c43664da12ba885844e064, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261686405917588804, guid: f33f335934c43664da12ba885844e064, type: 3}
       propertyPath: StopMovingEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4664,6 +4678,22 @@ MonoBehaviour:
   Notes: 'Change your pet model rotation offset here using Transform.Rotation.
 
     ROTATION
+    OFFSET ONLY.'
+--- !u!114 &1877378752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Change your pet model position offset here using Transform.Position.
+
+    POSITION
     OFFSET ONLY.'
 --- !u!1 &1883933637
 GameObject:
@@ -4947,16 +4977,16 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0.246, z: 0.056}
-  - {x: 0, y: -0.09318719, z: 0.050400004}
-  - {x: 0, y: -0.3624661, z: 0.044800006}
-  - {x: 0, y: -0.5618367, z: 0.0392}
-  - {x: 0, y: -0.6912992, z: 0.033600003}
-  - {x: 0, y: -0.75085324, z: 0.028}
-  - {x: 0, y: -0.74049914, z: 0.0224}
-  - {x: 0, y: -0.6602367, z: 0.016800001}
-  - {x: 0, y: -0.51006603, z: 0.0112}
-  - {x: 0, y: -0.2899872, z: 0.0056000017}
+  - {x: 0, y: -0.58648, z: 0.23072}
+  - {x: 0, y: -0.7743905, z: 0.207648}
+  - {x: 0, y: -0.9075103, z: 0.184576}
+  - {x: 0, y: -0.9858392, z: 0.161504}
+  - {x: 0, y: -1.0093774, z: 0.138432}
+  - {x: 0, y: -0.97812474, z: 0.11536}
+  - {x: 0, y: -0.8920813, z: 0.092287995}
+  - {x: 0, y: -0.75124717, z: 0.069216006}
+  - {x: 0, y: -0.5556222, z: 0.046143997}
+  - {x: 0, y: -0.30520657, z: 0.023072006}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3

@@ -934,7 +934,6 @@ GameObject:
   m_Component:
   - component: {fileID: 542251499}
   - component: {fileID: 542251500}
-  - component: {fileID: 542251501}
   m_Layer: 0
   m_Name: bgPet Parent Rotation
   m_TagString: Untagged
@@ -974,22 +973,6 @@ MonoBehaviour:
   follower: {fileID: 542251499}
   alignPosition: 0
   alignRotation: 1
---- !u!114 &542251501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542251498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Notes: 'Change your pet model position offset here using Transform.Position.
-
-    POSITION
-    OFFSET ONLY.'
 --- !u!1 &561701052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
@@ -1053,44 +1036,60 @@ PrefabInstance:
     m_TransformParent: {fileID: 542251499}
     m_Modifications:
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8991033
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.39538765
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.16453779
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.09060463
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 47.8
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -19.5
       objectReference: {fileID: 0}
     - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486111961589683427, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       propertyPath: m_Name
@@ -1123,6 +1122,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1877378749}
+    - targetCorrespondingSourceObject: {fileID: 4263493738199469657, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877378751}
   m_SourcePrefab: {fileID: 100100000, guid: e7d0e3e507b648c48adcfa1a5842fb63, type: 3}
 --- !u!4 &608779840 stripped
 Transform:
@@ -2153,6 +2155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoExit
       objectReference: {fileID: 0}
+    - target: {fileID: 3915257939761133550, guid: ee7f9afb64f4552439daba6111ca771f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2931,7 +2937,7 @@ Transform:
   m_GameObject: {fileID: 1456543546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.148, z: 0}
+  m_LocalPosition: {x: -0.007, y: 0.03, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4942,6 +4948,22 @@ MonoBehaviour:
 
     ROTATION
     OFFSET ONLY.'
+--- !u!114 &1877378751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36605226077b284d9ca38e0a35264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Change your pet model position offset here using Transform.Position.
+
+    POSITION
+    OFFSET ONLY.'
 --- !u!4 &1915980576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8907808973088994325, guid: f54012181eacade4ea242c65f804720f, type: 3}
@@ -5276,6 +5298,12 @@ MonoBehaviour:
   rotateSpeed: 7
   reverseX: 0
   reverseZ: 0
+  StartMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  StopMovingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &2126561390
 CharacterController:
   m_ObjectHideFlags: 0

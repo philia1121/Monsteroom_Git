@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 629902878669560591}
   - component: {fileID: 3929201064733151413}
   - component: {fileID: 1490872676902524278}
+  - component: {fileID: 4014408204395447883}
   m_Layer: 0
   m_Name: AutoExit
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edee2ddd9e1f704eab0984c0329cab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoExitGame: 1
+  autoExitGame: 0
   gameDuration: 60
 --- !u!114 &1490872676902524278
 MonoBehaviour:
@@ -71,3 +72,32 @@ MonoBehaviour:
     It''s
     RECOMMEND that you modify the GameDuration in prefab instead of this game object
     in scene.'
+--- !u!114 &4014408204395447883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915257939761133550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a25ee0780e6b5468047b0f868ccab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFiredText: 1
+  key: 32
+  HotKeyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3929201064733151413}
+        m_TargetAssemblyTypeName: ExitGameManager, Assembly-CSharp
+        m_MethodName: StartAutoExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
