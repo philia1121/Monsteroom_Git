@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ArcMove : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class ArcMove : MonoBehaviour
     public Transform pointB;
     public float curveOffset = 10f;
     public float moveSpeed = 2f;
-    public bool waitDone = false;
+    public UnityEvent OnReachAEvent;
+    public UnityEvent OnReachBEvent;
 
     private Vector3 controlPoint, startPoint, endPoint;
-    private bool goingToB = true;
     private float t = 0f;
     public void StartMoving()
     {
@@ -39,6 +40,10 @@ public class ArcMove : MonoBehaviour
         else
         {
             enabled = false;
+            if (endPoint == pointA.position)
+                OnReachAEvent.Invoke();
+            else
+                OnReachBEvent.Invoke();
         }
     }
     void MoveAlongCurve(Vector3 start, Vector3 control, Vector3 end, float t)
