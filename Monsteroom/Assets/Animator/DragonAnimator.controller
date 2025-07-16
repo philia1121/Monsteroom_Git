@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2597794908530434257, guid: 9585822bee2719b4f8bb06242304a306, type: 3}
+  m_Motion: {fileID: 7400000, guid: d5ea7558a7bd5fe45b0bf5400131a455, type: 2}
   m_Tag: 
   m_SpeedParameter: BounceSpeed
   m_MirrorParameter: 
@@ -640,7 +640,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: BounceSpeed
     m_Type: 1
-    m_DefaultFloat: 0.2
+    m_DefaultFloat: 0.25
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
