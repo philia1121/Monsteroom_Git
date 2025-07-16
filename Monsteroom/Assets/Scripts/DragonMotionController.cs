@@ -44,7 +44,7 @@ public class DragonMotionController : MonoBehaviour
         maxRotX = rotateSubject.rotation.x;
         minRotX += rotateReverse ? maxRotation : -maxRotation;
         maxRotX += rotateReverse ? -maxRotation : maxRotation;
-        normalAniSpeed = animator.GetFloat("BounceSpeed");
+        // normalAniSpeed = animator.GetFloat("BounceSpeed");
     }
 
     void Update()
@@ -60,18 +60,18 @@ public class DragonMotionController : MonoBehaviour
         {
             currentXRot = Mathf.MoveTowards(currentXRot, maxRotX, rotateSpeed * Time.deltaTime);
             pos.y = Mathf.MoveTowards(pos.y, maxY, moveSpeed * Time.deltaTime);
-            animator.SetFloat("BounceSpeed", movingAniSpeed);
+            // animator.SetFloat("BounceSpeed", movingAniSpeed);
         }
         else if (isMovingDown && pos.y > minY)
         {
             currentXRot = Mathf.MoveTowards(currentXRot, minRotX, rotateSpeed * Time.deltaTime);
             pos.y = Mathf.MoveTowards(pos.y, minY, moveSpeed * Time.deltaTime);
-            animator.SetFloat("BounceSpeed", movingAniSpeed);
+            // animator.SetFloat("BounceSpeed", movingAniSpeed);
         }
         else
         {
             currentXRot = Mathf.MoveTowards(currentXRot, 0f, rotateSpeed * Time.deltaTime);
-            animator.SetFloat("BounceSpeed", normalAniSpeed);
+            // animator.SetFloat("BounceSpeed", normalAniSpeed);
         }
 
         rotateSubject.localEulerAngles = new Vector3(currentXRot, rot.y, rot.z);

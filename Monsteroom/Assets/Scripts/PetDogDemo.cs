@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PetDogDemo : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private bool RHandInRange;
+    [SerializeField] private bool LHandInRange;
+    [Header("")]
+    [SerializeField] private float petRequireDuration;
+    private float petDuration;
+    public UnityEvent IsPettingEvent, IsNotPettingEvent, IsPetEnoughEvent;
+    [SerializeField] private bool showLog = false;
+    bool wasPetting;
+    public void SetRHandInRange(bool value) { RHandInRange = value; }
+    public void SetLHandInRange(bool value) { LHandInRange = value; }
+
     void Start()
     {
-        
+        wasPetting = RHandInRange | LHandInRange;
     }
 
-    // Update is called once per frame
+    public void CheckPettingState()
+    {
+        var isPetting = RHandInRange | LHandInRange;
+        if (isPetting != wasPetting)
+        {
+            if (isPetting)
+            {
+                IsPettingEvent.Invoke();
+                if (showLog) Debug.Log("isPetting Triggered");
+            }
+            else
+            {
+                IsNotPettingEvent.Invoke();
+                if (showLog) Debug.Log("isNotPetting Triggered");
+            }
+        }
+
+        wasPetting = RHandInRange | LHandInRange;
+    }
     void Update()
     {
-        
+        petDuration += Time.deltaTime;
+        if (petDuration > petRequireDuration)
+        {
+            IsPetEnoughEvent.Invoke();
+        }
     }
 }
