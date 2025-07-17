@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class AnimationEvent : MonoBehaviour
 {
+    public string Notes;
     public int TargetNum;
     public UnityEvent AnimationEventTrigger = new UnityEvent();
 

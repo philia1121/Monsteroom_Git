@@ -45,6 +45,7 @@ public class PetDogDemo : MonoBehaviour
         petDuration += Time.deltaTime;
         if (petDuration > petRequireDuration)
         {
+            this.enabled = false;
             IsPetEnoughEvent.Invoke();
         }
     }
