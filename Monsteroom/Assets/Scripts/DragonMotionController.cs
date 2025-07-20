@@ -60,17 +60,20 @@ public class DragonMotionController : MonoBehaviour
         {
             currentXRot = Mathf.MoveTowards(currentXRot, maxRotX, rotateSpeed * Time.deltaTime);
             pos.y = Mathf.MoveTowards(pos.y, maxY, moveSpeed * Time.deltaTime);
+            DragonStatusData.Instance.FlyDirection = 1;
             // animator.SetFloat("BounceSpeed", movingAniSpeed);
         }
         else if (isMovingDown && pos.y > minY)
         {
             currentXRot = Mathf.MoveTowards(currentXRot, minRotX, rotateSpeed * Time.deltaTime);
             pos.y = Mathf.MoveTowards(pos.y, minY, moveSpeed * Time.deltaTime);
+            DragonStatusData.Instance.FlyDirection = -1;
             // animator.SetFloat("BounceSpeed", movingAniSpeed);
         }
         else
         {
             currentXRot = Mathf.MoveTowards(currentXRot, 0f, rotateSpeed * Time.deltaTime);
+            DragonStatusData.Instance.FlyDirection = 0;
             // animator.SetFloat("BounceSpeed", normalAniSpeed);
         }
 
