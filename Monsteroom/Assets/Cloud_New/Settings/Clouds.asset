@@ -127,7 +127,7 @@ MonoBehaviour:
     m_Value: 4
   densityMultiplier:
     m_OverrideState: 1
-    m_Value: 0.33
+    m_Value: 0.26
   densityCurve:
     m_OverrideState: 1
     m_Value:
@@ -210,13 +210,13 @@ MonoBehaviour:
       m_RotationOrder: 4
   shapeFactor:
     m_OverrideState: 1
-    m_Value: 0.392
+    m_Value: 0.508
   shapeScale:
     m_OverrideState: 0
     m_Value: 5
   erosionFactor:
     m_OverrideState: 1
-    m_Value: 0.599
+    m_Value: 0.26
   erosionScale:
     m_OverrideState: 1
     m_Value: 127
@@ -322,10 +322,10 @@ MonoBehaviour:
     m_Value: 1
   altitudeRange:
     m_OverrideState: 1
-    m_Value: 1500
+    m_Value: 1000
   shapeOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
+    m_OverrideState: 1
+    m_Value: {x: 2.54, y: 1.24, z: 0.64}
   earthCurvature:
     m_OverrideState: 0
     m_Value: 0

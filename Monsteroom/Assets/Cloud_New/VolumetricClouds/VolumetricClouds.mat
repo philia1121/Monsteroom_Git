@@ -120,10 +120,10 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _CloudNearPlane: 1747.3647
+    - _CloudNearPlane: 0.01
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DensityMultiplier: 0.21780002
+    - _DensityMultiplier: 0.1352
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -131,20 +131,20 @@ Material:
     - _EarthCurvature: 0
     - _EarthRadius: 6378100
     - _EnvironmentReflections: 1
-    - _ErosionFactor: 0.599
+    - _ErosionFactor: 0.26
     - _ErosionFactorCompensation: 1
     - _ErosionOcclusion: 0.1
     - _ErosionScale: 127
     - _Exposure: 1.3
     - _FadeInDistance: 500
-    - _FadeInStart: 0.099999994
+    - _FadeInStart: 0.01
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HighestCloudAltitude: 6379601
+    - _HighestCloudAltitude: 6379101
     - _LowestCloudAltitude: 6378101
     - _MaxStep: 24
-    - _MaxStepSize: 187.5
+    - _MaxStepSize: 125
     - _MediumWindSpeed: 1
     - _Metallic: 0
     - _MicroErosionFactor: 0.5
@@ -159,7 +159,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Seed: 0
-    - _ShapeFactor: 0.392
+    - _ShapeFactor: 0.508
     - _ShapeScale: 5
     - _SmallWindSpeed: 0.25
     - _Smoothness: 0.5
@@ -173,8 +173,8 @@ Material:
     - _SunSize: 0.04
     - _SunSizeConvergence: 5
     - _Surface: 0
-    - _VerticalErosionWindDisplacement: -11.697118
-    - _VerticalShapeNoiseOffset: 0
+    - _VerticalErosionWindDisplacement: -0.17320858
+    - _VerticalShapeNoiseOffset: 1.24
     - _VerticalShapeWindDisplacement: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -184,7 +184,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.36899996, g: 0.34899998, b: 0.34099993, a: 1}
     - _ScatteringTint: {r: 1, g: 1, b: 1, a: 0.25}
-    - _ShapeNoiseOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _ShapeNoiseOffset: {r: 2.54, g: 0.64, b: 0, a: 0}
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WindDirection: {r: -1, g: -0, b: 0, a: 0}
