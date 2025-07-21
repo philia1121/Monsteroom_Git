@@ -9,6 +9,7 @@ public class PetDogDemo : MonoBehaviour
     [SerializeField] private bool LHandInRange;
     [Header("")]
     [SerializeField] private float petRequireDuration;
+    [SerializeField] private ParticleSystem effect;
     private float petDuration;
     public UnityEvent IsPettingEvent, IsNotPettingEvent, IsPetEnoughEvent;
     [SerializeField] private bool showLog = false;
@@ -29,11 +30,16 @@ public class PetDogDemo : MonoBehaviour
             if (isPetting)
             {
                 IsPettingEvent.Invoke();
+                effect.Play();
+                var main = effect.main;
+                main.loop = true;
                 if (showLog) Debug.Log("isPetting Triggered");
             }
             else
             {
                 IsNotPettingEvent.Invoke();
+                var main = effect.main;
+                main.loop = false;
                 if (showLog) Debug.Log("isNotPetting Triggered");
             }
         }
@@ -46,6 +52,8 @@ public class PetDogDemo : MonoBehaviour
         if (petDuration > petRequireDuration)
         {
             this.enabled = false;
+            var main = effect.main;
+            main.loop = false;
             IsPetEnoughEvent.Invoke();
         }
     }
