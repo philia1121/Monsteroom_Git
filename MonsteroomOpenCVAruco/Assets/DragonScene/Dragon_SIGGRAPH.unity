@@ -755,7 +755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &653260036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,10 +1979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfed024636c96db45b89e6dad9fedb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  keyboard_debug: 1
   OnAnyKeyEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2010,7 +2006,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  showLog: 0
 --- !u!114 &1836691549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2420,7 +2415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5898829864655260839, guid: 437e0987ef66b5c45bd017157ff0cd49, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6695563551348647620, guid: 437e0987ef66b5c45bd017157ff0cd49, type: 3}
       propertyPath: m_Enabled
