@@ -1,0 +1,10 @@
+# ninja log v5
+2	2929	7753944545461450	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	8e58b4a7b853caab
+79	3048	7753944546810224	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	929822b97c189de5
+71	3053	7753944546920613	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	cffaec8137416300
+56	3071	7753944547237175	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	5e0c752de28b37ea
+26	3086	7753944547287492	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	d898d32f5c438781
+89	3297	7753944549619927	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	59fafca98e2b4cae
+42	3377	7753944550445631	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	f1803073c2121b29
+34	3914	7753944555793353	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	cfdd9d48f3416b7
+3915	4411	7753944560870213	C:/Users/User/Desktop/Monsteroom/Monsteroom_Git/MonsteroomOpenCVAruco/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3l5l1t70/obj/arm64-v8a/libgame.so	75b9cb5a3310c0c5

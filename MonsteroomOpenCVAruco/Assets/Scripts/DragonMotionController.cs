@@ -23,11 +23,12 @@ public class DragonMotionController : MonoBehaviour
 
     [Header("Move and Rotate Settings")]
     [SerializeField] private float maxMove = 20;
+    [SerializeField] private bool moveReverse = false;
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private float maxRotation = 30;
     [SerializeField] private bool rotateReverse = false;
     [SerializeField] private float rotateSpeed = 45;
-    
+
 
     private float minY, maxY, minRotX, maxRotX;
     private float upTimer = 0f;
