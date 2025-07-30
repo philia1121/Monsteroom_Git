@@ -28,6 +28,76 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TestKey",
+            "id": "8ca9678f-cd24-49a9-8918-26655b6bb298",
+            "actions": [
+                {
+                    "name": "NextClip",
+                    "type": "Button",
+                    "id": "e8b9ef9f-b369-404a-a0f6-2b9576fb21d3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PreviousClip",
+                    "type": "Button",
+                    "id": "e5ed9eab-6556-4da6-92ce-6130aa8bed98",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7f68cb09-d990-47b2-8d7b-3e6504d06472",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextClip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c40feacc-792c-4b68-af11-5eaee1065032",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextClip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de60a219-7527-40f1-b8c6-5be29305eab8",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousClip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afa01b16-4a41-4695-bbf4-a72deb938bbd",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousClip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

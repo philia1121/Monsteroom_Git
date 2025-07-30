@@ -114,6 +114,76 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""TestKey"",
+            ""id"": ""8ca9678f-cd24-49a9-8918-26655b6bb298"",
+            ""actions"": [
+                {
+                    ""name"": ""NextClip"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8b9ef9f-b369-404a-a0f6-2b9576fb21d3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousClip"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5ed9eab-6556-4da6-92ce-6130aa8bed98"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7f68cb09-d990-47b2-8d7b-3e6504d06472"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextClip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c40feacc-792c-4b68-af11-5eaee1065032"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextClip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de60a219-7527-40f1-b8c6-5be29305eab8"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousClip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afa01b16-4a41-4695-bbf4-a72deb938bbd"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousClip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -121,11 +191,16 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
+        // TestKey
+        m_TestKey = asset.FindActionMap("TestKey", throwIfNotFound: true);
+        m_TestKey_NextClip = m_TestKey.FindAction("NextClip", throwIfNotFound: true);
+        m_TestKey_PreviousClip = m_TestKey.FindAction("PreviousClip", throwIfNotFound: true);
     }
 
     ~@MyInputMap()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, MyInputMap.Gameplay.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_TestKey.enabled, "This will cause a leak and performance issues, MyInputMap.TestKey.Disable() has not been called.");
     }
 
     /// <summary>
@@ -293,6 +368,113 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="GameplayActions" /> instance referencing this action map.
     /// </summary>
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // TestKey
+    private readonly InputActionMap m_TestKey;
+    private List<ITestKeyActions> m_TestKeyActionsCallbackInterfaces = new List<ITestKeyActions>();
+    private readonly InputAction m_TestKey_NextClip;
+    private readonly InputAction m_TestKey_PreviousClip;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "TestKey".
+    /// </summary>
+    public struct TestKeyActions
+    {
+        private @MyInputMap m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public TestKeyActions(@MyInputMap wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextClip".
+        /// </summary>
+        public InputAction @NextClip => m_Wrapper.m_TestKey_NextClip;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/PreviousClip".
+        /// </summary>
+        public InputAction @PreviousClip => m_Wrapper.m_TestKey_PreviousClip;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_TestKey; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="TestKeyActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(TestKeyActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions" />
+        public void AddCallbacks(ITestKeyActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TestKeyActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Add(instance);
+            @NextClip.started += instance.OnNextClip;
+            @NextClip.performed += instance.OnNextClip;
+            @NextClip.canceled += instance.OnNextClip;
+            @PreviousClip.started += instance.OnPreviousClip;
+            @PreviousClip.performed += instance.OnPreviousClip;
+            @PreviousClip.canceled += instance.OnPreviousClip;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions" />
+        private void UnregisterCallbacks(ITestKeyActions instance)
+        {
+            @NextClip.started -= instance.OnNextClip;
+            @NextClip.performed -= instance.OnNextClip;
+            @NextClip.canceled -= instance.OnNextClip;
+            @PreviousClip.started -= instance.OnPreviousClip;
+            @PreviousClip.performed -= instance.OnPreviousClip;
+            @PreviousClip.canceled -= instance.OnPreviousClip;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />.
+        /// </summary>
+        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
+        public void RemoveCallbacks(ITestKeyActions instance)
+        {
+            if (m_Wrapper.m_TestKeyActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions.AddCallbacks(ITestKeyActions)" />
+        /// <seealso cref="TestKeyActions.RemoveCallbacks(ITestKeyActions)" />
+        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
+        public void SetCallbacks(ITestKeyActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TestKeyActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="TestKeyActions" /> instance referencing this action map.
+    /// </summary>
+    public TestKeyActions @TestKey => new TestKeyActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
     /// </summary>
@@ -307,5 +489,27 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAnyInput(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "TestKey" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="TestKeyActions.AddCallbacks(ITestKeyActions)" />
+    /// <seealso cref="TestKeyActions.RemoveCallbacks(ITestKeyActions)" />
+    public interface ITestKeyActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "NextClip" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextClip(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PreviousClip" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPreviousClip(InputAction.CallbackContext context);
     }
 }
