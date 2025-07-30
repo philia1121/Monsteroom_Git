@@ -1,10 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class ClipSwitcher : MonoBehaviour
 {
+    public Transform myTransform;
     MyInputMap myInputMap;
     public Animator myAnimator;
     public int currentIndex = 0;
+    public string currentState;
+    public int[] section;
+    public AnimationClip[] allClips;
+    IEnumerator cor;
     void Awake()
     {
         myInputMap = new MyInputMap();
@@ -14,11 +21,13 @@ public class ClipSwitcher : MonoBehaviour
         myInputMap.TestKey.Enable();
         myInputMap.TestKey.NextClip.started += ctx => SwitchClip(1);
         myInputMap.TestKey.PreviousClip.started += ctx => SwitchClip(-1);
+        myInputMap.TestKey.Rescale.performed += Rescale;
     }
 
     void Start()
     {
-
+        cor = NameCheck();
+        StartCoroutine(cor);
     }
     void OnDisable()
     {
@@ -27,8 +36,51 @@ public class ClipSwitcher : MonoBehaviour
     void SwitchClip(int i)
     {
         currentIndex += i;
-        if (currentIndex > 112) currentIndex = 0;
+        if (currentIndex > 113) currentIndex = 0;
+        if (currentIndex < 1) currentIndex = 113;
         myAnimator.SetInteger("Index", currentIndex);
+    }
+    void SwitchSection()
+    {
+        for (int i = 0; i < section.Length; i++)
+        {
+            if (currentIndex > section[i] & currentIndex < section[i+1])
+            {
+                currentIndex = section[i + 1];
+            }
+        }
+    }
+    void Rescale(InputAction.CallbackContext ctx)
+    {
+        Vector2 value = ctx.ReadValue<Vector2>();
+        if (value.y > 0.5f)
+        {
+            myTransform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+        }
+        else if(value.y < -0.5f)
+        {
+            myTransform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+        }
+    }
+    string GetAnimatorStateName(AnimatorStateInfo info)
+    {
+        foreach (var clip in allClips)
+        {
+            if (info.IsName(clip.name))
+            {
+                return clip.name;
+            }
+        }
+        return "?";
+    }
+    IEnumerator NameCheck()
+    {
+        while (true)
+        {
+            GetAnimatorStateName(myAnimator.GetCurrentAnimatorStateInfo(0));
+            currentState = GetAnimatorStateName(myAnimator.GetCurrentAnimatorStateInfo(0));
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
 }

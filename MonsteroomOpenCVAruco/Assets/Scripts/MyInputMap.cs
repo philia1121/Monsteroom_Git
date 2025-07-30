@@ -136,6 +136,15 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rescale"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e7145b5-a75b-40a0-a060-93441f5a2f7b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -182,6 +191,17 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""PreviousClip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5981c39-28ef-4130-923b-b4554f1ee8df"",
+                    ""path"": ""<XRController>{RightHand}/{Primary2DAxisTouch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rescale"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -195,6 +215,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey = asset.FindActionMap("TestKey", throwIfNotFound: true);
         m_TestKey_NextClip = m_TestKey.FindAction("NextClip", throwIfNotFound: true);
         m_TestKey_PreviousClip = m_TestKey.FindAction("PreviousClip", throwIfNotFound: true);
+        m_TestKey_Rescale = m_TestKey.FindAction("Rescale", throwIfNotFound: true);
     }
 
     ~@MyInputMap()
@@ -374,6 +395,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private List<ITestKeyActions> m_TestKeyActionsCallbackInterfaces = new List<ITestKeyActions>();
     private readonly InputAction m_TestKey_NextClip;
     private readonly InputAction m_TestKey_PreviousClip;
+    private readonly InputAction m_TestKey_Rescale;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -393,6 +415,10 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "TestKey/PreviousClip".
         /// </summary>
         public InputAction @PreviousClip => m_Wrapper.m_TestKey_PreviousClip;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/Rescale".
+        /// </summary>
+        public InputAction @Rescale => m_Wrapper.m_TestKey_Rescale;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -425,6 +451,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @PreviousClip.started += instance.OnPreviousClip;
             @PreviousClip.performed += instance.OnPreviousClip;
             @PreviousClip.canceled += instance.OnPreviousClip;
+            @Rescale.started += instance.OnRescale;
+            @Rescale.performed += instance.OnRescale;
+            @Rescale.canceled += instance.OnRescale;
         }
 
         /// <summary>
@@ -442,6 +471,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @PreviousClip.started -= instance.OnPreviousClip;
             @PreviousClip.performed -= instance.OnPreviousClip;
             @PreviousClip.canceled -= instance.OnPreviousClip;
+            @Rescale.started -= instance.OnRescale;
+            @Rescale.performed -= instance.OnRescale;
+            @Rescale.canceled -= instance.OnRescale;
         }
 
         /// <summary>
@@ -511,5 +543,12 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPreviousClip(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Rescale" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRescale(InputAction.CallbackContext context);
     }
 }
