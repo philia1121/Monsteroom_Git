@@ -1,0 +1,34 @@
+{
+    "name": "MyInputMap",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "26c5aeff-bb09-47e8-a254-d8b96f5ae490",
+            "actions": [
+                {
+                    "name": "AnyInput",
+                    "type": "Button",
+                    "id": "b82353de-a368-4675-ace6-38f367bf2b5f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "74f43de7-ee42-489d-9c11-c96c1c3c0ee8",
+                    "path": "*/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
