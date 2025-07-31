@@ -1,10 +1,10 @@
 # ninja log v5
-32	11443	7754777861747664	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	753a0d42064bf8d4
-39	11450	7754777861812900	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	37539bec3e7690e3
-48	11472	7754777862020012	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e0970149b5498ba5
-0	11476	7754777862070304	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c310d73fdf8afd89
-9	11528	7754777862584373	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	3dc790f6dfc1fe02
-56	11531	7754777862679825	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	426bba51a64ab530
-24	11675	7754777864114357	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	555bb2f7cd6b5f2
-16	11785	7754777865158989	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d1137711dd06ec19
-11785	11906	7754777866418817	C:/Users/User/Desktop/Monsteroom/Monsteroom_Git/MonsteroomOpenCVAruco/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5m3a3v5t/obj/arm64-v8a/libgame.so	bb7cdf22da436163
+42	2010	7756492575819366	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	37539bec3e7690e3
+35	2021	7756492575869462	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	753a0d42064bf8d4
+26	2031	7756492576063773	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c310d73fdf8afd89
+64	2049	7756492576265280	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e0970149b5498ba5
+0	2115	7756492576886692	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	3dc790f6dfc1fe02
+56	2124	7756492577037315	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	426bba51a64ab530
+49	2322	7756492579014894	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	555bb2f7cd6b5f2
+8	2435	7756492580099189	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d1137711dd06ec19
+2435	2580	7756492581567780	C:/Users/User/Desktop/Monsteroom/Monsteroom_Git/MonsteroomOpenCVAruco/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5m3a3v5t/obj/arm64-v8a/libgame.so	bb7cdf22da436163

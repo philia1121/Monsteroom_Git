@@ -53,8 +53,26 @@
                 },
                 {
                     "name": "Rescale",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "3e7145b5-a75b-40a0-a060-93441f5a2f7b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SeeThroughToggle",
+                    "type": "Button",
+                    "id": "5cc0434c-29f6-448b-b073-c827864fb347",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EnvironmentToggle",
+                    "type": "Button",
+                    "id": "f200c483-0b93-4f87-92ee-8cd46af94747",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -114,6 +132,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rescale",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2adc3f5-a92b-49be-909e-ea0a4c45f85d",
+                    "path": "<XRController>{RightHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87fd8847-e7ea-4101-a99f-5ce671e7ce7f",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ababe27-362f-471b-8361-afeeb7afb4eb",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0995f24-1a77-45b5-860d-cb68ce1d3c32",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5bfde5cf-7384-4e4e-87f3-9e2ea426202b",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnvironmentToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8da6bba-12a7-4b8b-b8bc-05ae9cdf32fd",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnvironmentToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

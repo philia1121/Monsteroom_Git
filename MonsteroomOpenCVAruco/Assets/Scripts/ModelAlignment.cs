@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ModelAlignment : MonoBehaviour
 {
-    [SerializeField]private Transform target;
-    [SerializeField]private Transform follower;
-    [SerializeField]private bool alignPosition = true;
-    [SerializeField]private bool alignRotation = true;
+    [SerializeField] private Transform target;
+    [SerializeField] private Transform follower;
+    [SerializeField] private bool alignPosition = true;
+    [SerializeField] private bool alignRotation = true;
     void Start()
     {
-        if(!follower)
+        if (!follower)
             follower = this.transform;
     }
-    
+
     void Update()
     {
-        if(alignPosition)
+        if (alignPosition)
             follower.transform.position = target.position;
-        if(alignRotation)
+        if (alignRotation)
             follower.transform.rotation = target.rotation;
     }
 }
