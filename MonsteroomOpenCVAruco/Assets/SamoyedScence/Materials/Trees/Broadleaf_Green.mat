@@ -110,7 +110,7 @@ Material:
     - _AlphaClip: 1
     - _AlphaCutoff: 0.5
     - _AlphaToMask: 1
-    - _Alpha_Cutoff: 0.5
+    - _Alpha_Cutoff: 0.6
     - _BEND_WIND_OVERLAY: 0
     - _BOOLEAN_1: 0
     - _Bend: 0
@@ -168,7 +168,7 @@ Material:
     - _WindStrength: 1
     - _Wind_Direction: 0
     - _Wind_Speed: 0.14
-    - _Wind_Strength: 0.25
+    - _Wind_Strength: 0
     - _Wind_Variation: 1
     - _WorkflowMode: 0
     - _ZTest: 4
