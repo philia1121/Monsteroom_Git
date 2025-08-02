@@ -5,10 +5,13 @@ using System.Collections.Generic;
 
 namespace Awespire
 {
-    public class WebCamMgr : MonoBehaviour {
+    public class WebCamMgr : MonoBehaviour
+    {
         private static WebCamMgr _instance;
-        public static WebCamMgr instance {
-            get {
+        public static WebCamMgr instance
+        {
+            get
+            {
                 if (_instance == null)
                     _instance = GameObject.FindFirstObjectByType<WebCamMgr>();
                 return _instance;
@@ -51,24 +54,30 @@ namespace Awespire
         private string debugText = "";
         private Texture2D debugTexture = null;
 
-        private void Awake() {
+        private void Awake()
+        {
             // Check Instance
-            if (_instance == null) {
+            if (_instance == null)
+            {
                 _instance = this;
             }
 
-            if (WebCamMgr.instance.gameObject.GetInstanceID() == this.gameObject.GetInstanceID()) {
+            if (WebCamMgr.instance.gameObject.GetInstanceID() == this.gameObject.GetInstanceID())
+            {
                 DontDestroyOnLoad(this.gameObject);
-            } else {
+            }
+            else
+            {
                 Destroy(this.gameObject);
             }
         }
 
-        private IEnumerator Start() {
+        private IEnumerator Start()
+        {
 #if UNITY_EDITOR
             testWebcamTexture = new WebCamTexture();
             testWebcamTexture.Play();
-            viewMat.SetTexture("_BaseMap", testWebcamTexture);
+            if (viewMat != null) viewMat.SetTexture("_BaseMap", testWebcamTexture); // JC
             yield return null;
 
             // ArUcoTrackerMgr.Initialize(1920, 1080, 960, 540, 1920, 1080);
@@ -99,7 +108,8 @@ namespace Awespire
             InitialEstimateDelay();
         }
 
-        void Update() {
+        void Update()
+        {
             debugText = PassthroughCameraSamples.PassthroughCameraPermissions.HasCameraPermission == true ? "Permission granted." : "No permission granted.";
             debugText += $"\n{CameraResolution.x} x {CameraResolution.y}";
             debugText += $"\n{usedBufferShift} + {estimateWebCamTexDelay} | {bufferSize}";
@@ -123,15 +133,19 @@ namespace Awespire
                 ShowDebugTexture = !ShowDebugTexture;
             }
 #endif
-            
-            if (Awespire.OpenCV.ArUcoTrackerMgr.instance.IsReady) {
+
+            if (Awespire.OpenCV.ArUcoTrackerMgr.instance.IsReady)
+            {
 #if UNITY_EDITOR
                 cameraAnchor.position = Vector3.zero;
                 cameraAnchor.rotation = Quaternion.identity;
 
-                if (ShowDebugTexture) {
+                if (ShowDebugTexture)
+                {
                     debugTexture = Awespire.OpenCV.ArUcoTrackerMgr.instance.DetectAndEstimateMarker(testWebcamTexture, testCamAnchor, true, debugTexture);
-                } else {
+                }
+                else
+                {
                     Awespire.OpenCV.ArUcoTrackerMgr.instance.DetectAndEstimateMarker_Thread(testWebcamTexture);
                 }
 #else
@@ -148,30 +162,39 @@ namespace Awespire
 #endif
                 // prevEstCamPos = nowEstCamPos;
 
-                if (ShowDebugTexture && debugTexture != null && viewMat != null) {
-                    viewMat.SetTexture("_BaseMap", debugTexture);
+                if (ShowDebugTexture && debugTexture != null && viewMat != null)
+                {
+                    viewMat.SetTexture("_BaseMap", debugTexture); //JC
                 }
-            } else {
+            }
+            else
+            {
                 InitialMarkerTracking();
             }
         }
 
-        void InitialEstimateDelay() {
-            if (ShowDebugTexture) {
+        void InitialEstimateDelay()
+        {
+            if (ShowDebugTexture)
+            {
                 estimateWebCamTexDelay = 3;
-            } else {
+            }
+            else
+            {
                 estimateWebCamTexDelay = 6;
             }
         }
 
-        private void ShowDebugText(string val) {
+        private void ShowDebugText(string val)
+        {
             Debug.Log($"<color=white>[WebCamMgr] </color> {val}");
             if (tm == null) return;
 
             tm.text = val;
         }
 
-        private void InitialMarkerTracking() {
+        private void InitialMarkerTracking()
+        {
             // These intrinsic parameters are essential for accurate marker pose estimation
             var intrinsics = PassthroughCameraSamples.PassthroughCameraUtils.GetCameraIntrinsics(CameraEye);
             var cx = intrinsics.PrincipalPoint.x;  // Principal point X (optical center)
@@ -186,16 +209,20 @@ namespace Awespire
         }
 
         // true - buffer avalible
-        private bool CameraPosBufferHandler() {
+        private bool CameraPosBufferHandler()
+        {
             var cameraPose = PassthroughCameraSamples.PassthroughCameraUtils.GetCameraPoseInWorld(CameraEye);
 
             bufferedPos.Add(cameraPose.position);
             bufferedRot.Add(cameraPose.rotation);
 
-            if (bufferCnt < bufferSize) {
+            if (bufferCnt < bufferSize)
+            {
                 bufferCnt++;
                 return false;
-            } else {
+            }
+            else
+            {
                 bufferedPos.RemoveAt(0);
                 bufferedRot.RemoveAt(0);
             }
@@ -205,24 +232,30 @@ namespace Awespire
 
         #region Static Methods
 
-        public static void EstimateCameraPose(out Vector3 pos, out Quaternion rot) {
+        public static void EstimateCameraPose(out Vector3 pos, out Quaternion rot)
+        {
             var cameraPose = PassthroughCameraSamples.PassthroughCameraUtils.GetCameraPoseInWorld(PassthroughCameraSamples.PassthroughCameraEye.Left);
 
             pos = cameraPose.position;
             rot = cameraPose.rotation;
         }
 
-        public static void EstimateCameraPose(int bufferShift, out Vector3 pos, out Quaternion rot) {
-            if (bufferedPos.Count == 0) {
+        public static void EstimateCameraPose(int bufferShift, out Vector3 pos, out Quaternion rot)
+        {
+            if (bufferedPos.Count == 0)
+            {
                 EstimateCameraPose(out pos, out rot);
                 return;
             }
 
             int targetID = 0;
 
-            if (bufferShift + estimateWebCamTexDelay >= bufferedPos.Count) {
+            if (bufferShift + estimateWebCamTexDelay >= bufferedPos.Count)
+            {
                 targetID = 0;
-            } else {
+            }
+            else
+            {
                 usedBufferShift = bufferShift;
                 targetID = bufferedPos.Count - (bufferShift + estimateWebCamTexDelay);
             }
