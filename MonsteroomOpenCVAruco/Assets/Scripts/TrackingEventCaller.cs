@@ -26,7 +26,7 @@ public class TrackingEventCaller : MonoBehaviour
 
     [Header("UI Board")]
     public TextMeshProUGUI timeWindow_text;
-    public TextMeshProUGUI moveThreshold_text, rotateTHreshold_text;
+    public TextMeshProUGUI moveThreshold_text, rotateThreshold_text;
     public TextMeshProUGUI log_text;
     public UnityEngine.UI.Image move_img, rotate_img;
 
@@ -45,7 +45,10 @@ public class TrackingEventCaller : MonoBehaviour
     // public bool IsPlayerRotating;
     // bool wasPlayerRotating;
     float minMovingDist, maxMovingDist, minRotatingDist, maxRotatingDist, movingDist, rotatingDist;
-    LinkedList<(float time, Vector3 pos, Vector3 rot)> historyPoints = new LinkedList<(float time, Vector3 pos, Vector3 rot)>();
+    LinkedList<(float time, Vector3 pos, Quaternion rot)> historyPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot)>();
+
+    int adjustingVariable = 0;
+    float adjustScale = 0.001f;
     void Awake()
     {
         myInputMap = new MyInputMap();
@@ -54,6 +57,11 @@ public class TrackingEventCaller : MonoBehaviour
     {
         myInputMap.TestKey.Enable();
         myInputMap.TestKey.NextClip.started += ctx => ResetValue();
+        myInputMap.TestKey.NextVariable.started += ctx => SelectAdjustingVariable();
+        myInputMap.TestKey.Adjust.started += AdjustVariable;
+        myInputMap.TestKey.Adjust.performed += AdjustVariable;
+        myInputMap.TestKey.Adjust.canceled += AdjustVariable;
+        myInputMap.TestKey.NextScaleAdjust.started += ctx => SelectAdjustScale();
     }
     void ResetValue()
     {
@@ -72,7 +80,7 @@ public class TrackingEventCaller : MonoBehaviour
         // playerCurrentRot = FilteredRotaion(playerTransform.rotation);
 
         float now = Time.time;
-        historyPoints.AddLast((now, currentPos, currentRot.eulerAngles));
+        historyPoints.AddLast((now, currentPos, currentRot));
         while (historyPoints.Count > 0 && now - historyPoints.First.Value.time > timeWindow + 0.05f)
         {
             historyPoints.RemoveFirst();
@@ -140,7 +148,7 @@ public class TrackingEventCaller : MonoBehaviour
             float age = Time.time - record.time;
             if (age >= timeWindow)
             {
-                rotatingDist = Vector3.Distance(currentRot.eulerAngles, record.rot);
+                rotatingDist = Quaternion.Angle(currentRot, record.rot);
             }
         }
 
@@ -182,9 +190,9 @@ public class TrackingEventCaller : MonoBehaviour
     }
     void UpdateLogBoard()
     {
-        timeWindow_text.text = timeWindow.ToString();
-        moveThreshold_text.text = moveThreshold.ToString();
-        rotateTHreshold_text.text = rotateThreshold.ToString();
+        timeWindow_text.text = timeWindow.ToString("0.000000");
+        moveThreshold_text.text = moveThreshold.ToString("0.000000");
+        rotateThreshold_text.text = rotateThreshold.ToString("0.000000");
 
         move_img.color = IsMoving ? Color.green : Color.red;
         rotate_img.color = IsRotating ? Color.green : Color.red;
@@ -205,6 +213,49 @@ public class TrackingEventCaller : MonoBehaviour
     public void Set_MoveThreshold(string value) { moveThreshold = float.Parse(value); }
     public void Set_RotateThreshold(float value) { rotateThreshold = value; }
     public void Set_RotateThreshold(string value) { rotateThreshold = float.Parse(value); }
+
+    void SelectAdjustingVariable()
+    {
+        adjustingVariable += 1;
+        if (adjustingVariable > 2) adjustingVariable = 0;
+
+        timeWindow_text.fontSize = 36;
+        moveThreshold_text.fontSize = 36;
+        rotateThreshold_text.fontSize = 36;
+        switch (adjustingVariable)
+        {
+            case 0:
+                timeWindow_text.fontSize = 42;
+                break;
+            case 1:
+                moveThreshold_text.fontSize = 42;
+                break;
+            case 2:
+                rotateThreshold_text.fontSize = 42;
+                break;
+        }
+    }
+    void SelectAdjustScale()
+    {
+        adjustScale *= 10;
+        if (adjustScale > 1) adjustScale = 0.001f;
+    }
+    void AdjustVariable(InputAction.CallbackContext ctx)
+    {
+        Vector2 value = ctx.ReadValue<Vector2>();
+        switch (adjustingVariable)
+        {
+            case 0:
+                timeWindow += value.y > 0 ? adjustScale : -adjustScale;
+                break;
+            case 1:
+                moveThreshold += value.y > 0 ? adjustScale : -adjustScale;
+                break;
+            case 2:
+                rotateThreshold += value.y > 0 ? adjustScale : -adjustScale;
+                break;
+        }
+    }
     Vector3 FilteredPos(Vector3 value)
     {
         float newX = moveIgnore.ignoreX ? 0 : value.x;

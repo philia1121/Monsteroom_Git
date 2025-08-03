@@ -147,6 +147,15 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Adjust"",
+                    ""type"": ""Value"",
+                    ""id"": ""eb0fa8fa-fc16-4eef-9eef-6fd966fa9c09"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""SeeThroughToggle"",
                     ""type"": ""Button"",
                     ""id"": ""5cc0434c-29f6-448b-b073-c827864fb347"",
@@ -156,9 +165,27 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""NextVariable"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba25cc76-9ce5-47fc-9d56-075d925b9da0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""EnvironmentToggle"",
                     ""type"": ""Button"",
                     ""id"": ""f200c483-0b93-4f87-92ee-8cd46af94747"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextScaleAdjust"",
+                    ""type"": ""Button"",
+                    ""id"": ""a55fb272-9b6b-4926-98d9-7fb0777a2729"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -245,6 +272,94 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""08779004-3d7e-4f09-86fd-8ac7e194f715"",
+                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8631c81-ac1b-4be1-825d-1039ae41a007"",
+                    ""path"": ""<XRController>{LeftHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d17154fa-42bd-4573-8782-d13cb5114772"",
+                    ""path"": ""<XRController>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""b58eceb4-c4a6-4a35-85f9-69a6389aba1d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cf21904c-9dfb-4314-b2cd-4fd051064d6a"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3dc28c34-4a32-4ecf-8e92-1489f1d5dbb0"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2fc54023-4889-4d0f-bb95-0f9c680b96ea"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""40b2aab6-3e3d-4331-9ee1-4f573ff0fa23"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Adjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4ababe27-362f-471b-8361-afeeb7afb4eb"",
                     ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
                     ""interactions"": """",
@@ -262,6 +377,28 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a5012d3-a97c-424d-bba6-f382a4f89e67"",
+                    ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextVariable"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16015db4-0fba-427a-ac40-bfecf7fee3fa"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextVariable"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -286,6 +423,28 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""EnvironmentToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f34446a-646d-4ebc-aa59-924744d50994"",
+                    ""path"": ""<XRController>{LeftHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextScaleAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92d82ca7-d37b-4f66-b01b-b4a028668aa7"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextScaleAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -300,8 +459,11 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey_NextClip = m_TestKey.FindAction("NextClip", throwIfNotFound: true);
         m_TestKey_PreviousClip = m_TestKey.FindAction("PreviousClip", throwIfNotFound: true);
         m_TestKey_Rescale = m_TestKey.FindAction("Rescale", throwIfNotFound: true);
+        m_TestKey_Adjust = m_TestKey.FindAction("Adjust", throwIfNotFound: true);
         m_TestKey_SeeThroughToggle = m_TestKey.FindAction("SeeThroughToggle", throwIfNotFound: true);
+        m_TestKey_NextVariable = m_TestKey.FindAction("NextVariable", throwIfNotFound: true);
         m_TestKey_EnvironmentToggle = m_TestKey.FindAction("EnvironmentToggle", throwIfNotFound: true);
+        m_TestKey_NextScaleAdjust = m_TestKey.FindAction("NextScaleAdjust", throwIfNotFound: true);
     }
 
     ~@MyInputMap()
@@ -482,8 +644,11 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_TestKey_NextClip;
     private readonly InputAction m_TestKey_PreviousClip;
     private readonly InputAction m_TestKey_Rescale;
+    private readonly InputAction m_TestKey_Adjust;
     private readonly InputAction m_TestKey_SeeThroughToggle;
+    private readonly InputAction m_TestKey_NextVariable;
     private readonly InputAction m_TestKey_EnvironmentToggle;
+    private readonly InputAction m_TestKey_NextScaleAdjust;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -508,13 +673,25 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Rescale => m_Wrapper.m_TestKey_Rescale;
         /// <summary>
+        /// Provides access to the underlying input action "TestKey/Adjust".
+        /// </summary>
+        public InputAction @Adjust => m_Wrapper.m_TestKey_Adjust;
+        /// <summary>
         /// Provides access to the underlying input action "TestKey/SeeThroughToggle".
         /// </summary>
         public InputAction @SeeThroughToggle => m_Wrapper.m_TestKey_SeeThroughToggle;
         /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextVariable".
+        /// </summary>
+        public InputAction @NextVariable => m_Wrapper.m_TestKey_NextVariable;
+        /// <summary>
         /// Provides access to the underlying input action "TestKey/EnvironmentToggle".
         /// </summary>
         public InputAction @EnvironmentToggle => m_Wrapper.m_TestKey_EnvironmentToggle;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextScaleAdjust".
+        /// </summary>
+        public InputAction @NextScaleAdjust => m_Wrapper.m_TestKey_NextScaleAdjust;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -550,12 +727,21 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @Rescale.started += instance.OnRescale;
             @Rescale.performed += instance.OnRescale;
             @Rescale.canceled += instance.OnRescale;
+            @Adjust.started += instance.OnAdjust;
+            @Adjust.performed += instance.OnAdjust;
+            @Adjust.canceled += instance.OnAdjust;
             @SeeThroughToggle.started += instance.OnSeeThroughToggle;
             @SeeThroughToggle.performed += instance.OnSeeThroughToggle;
             @SeeThroughToggle.canceled += instance.OnSeeThroughToggle;
+            @NextVariable.started += instance.OnNextVariable;
+            @NextVariable.performed += instance.OnNextVariable;
+            @NextVariable.canceled += instance.OnNextVariable;
             @EnvironmentToggle.started += instance.OnEnvironmentToggle;
             @EnvironmentToggle.performed += instance.OnEnvironmentToggle;
             @EnvironmentToggle.canceled += instance.OnEnvironmentToggle;
+            @NextScaleAdjust.started += instance.OnNextScaleAdjust;
+            @NextScaleAdjust.performed += instance.OnNextScaleAdjust;
+            @NextScaleAdjust.canceled += instance.OnNextScaleAdjust;
         }
 
         /// <summary>
@@ -576,12 +762,21 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @Rescale.started -= instance.OnRescale;
             @Rescale.performed -= instance.OnRescale;
             @Rescale.canceled -= instance.OnRescale;
+            @Adjust.started -= instance.OnAdjust;
+            @Adjust.performed -= instance.OnAdjust;
+            @Adjust.canceled -= instance.OnAdjust;
             @SeeThroughToggle.started -= instance.OnSeeThroughToggle;
             @SeeThroughToggle.performed -= instance.OnSeeThroughToggle;
             @SeeThroughToggle.canceled -= instance.OnSeeThroughToggle;
+            @NextVariable.started -= instance.OnNextVariable;
+            @NextVariable.performed -= instance.OnNextVariable;
+            @NextVariable.canceled -= instance.OnNextVariable;
             @EnvironmentToggle.started -= instance.OnEnvironmentToggle;
             @EnvironmentToggle.performed -= instance.OnEnvironmentToggle;
             @EnvironmentToggle.canceled -= instance.OnEnvironmentToggle;
+            @NextScaleAdjust.started -= instance.OnNextScaleAdjust;
+            @NextScaleAdjust.performed -= instance.OnNextScaleAdjust;
+            @NextScaleAdjust.canceled -= instance.OnNextScaleAdjust;
         }
 
         /// <summary>
@@ -659,6 +854,13 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRescale(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "Adjust" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAdjust(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "SeeThroughToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -666,11 +868,25 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSeeThroughToggle(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "NextVariable" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextVariable(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "EnvironmentToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEnvironmentToggle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NextScaleAdjust" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextScaleAdjust(InputAction.CallbackContext context);
     }
 }
