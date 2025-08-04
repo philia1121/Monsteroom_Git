@@ -633,7 +633,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""modifier"",
                     ""id"": ""5a0754eb-247f-4b7c-b1a8-a0439a812ce5"",
-                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""path"": ""*/{TriggerButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
