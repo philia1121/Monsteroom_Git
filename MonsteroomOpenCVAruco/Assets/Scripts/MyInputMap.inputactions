@@ -2,34 +2,6 @@
     "name": "MyInputMap",
     "maps": [
         {
-            "name": "Gameplay",
-            "id": "26c5aeff-bb09-47e8-a254-d8b96f5ae490",
-            "actions": [
-                {
-                    "name": "AnyInput",
-                    "type": "Button",
-                    "id": "b82353de-a368-4675-ace6-38f367bf2b5f",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "74f43de7-ee42-489d-9c11-c96c1c3c0ee8",
-                    "path": "*/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AnyInput",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "TestKey",
             "id": "8ca9678f-cd24-49a9-8918-26655b6bb298",
             "actions": [
@@ -70,18 +42,27 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "SeeThroughToggle",
+                    "name": "NextVariable",
                     "type": "Button",
-                    "id": "5cc0434c-29f6-448b-b073-c827864fb347",
+                    "id": "ba25cc76-9ce5-47fc-9d56-075d925b9da0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "NextVariable",
+                    "name": "NextScaleAdjust",
                     "type": "Button",
-                    "id": "ba25cc76-9ce5-47fc-9d56-075d925b9da0",
+                    "id": "a55fb272-9b6b-4926-98d9-7fb0777a2729",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SeeThroughToggle",
+                    "type": "Button",
+                    "id": "5cc0434c-29f6-448b-b073-c827864fb347",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -97,13 +78,40 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "NextScaleAdjust",
+                    "name": "ResetRecord",
                     "type": "Button",
-                    "id": "a55fb272-9b6b-4926-98d9-7fb0777a2729",
+                    "id": "ed126be2-e7b1-4978-9e21-05bea02dd4c5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "BoardToggle",
+                    "type": "Button",
+                    "id": "54d093c2-98fc-4775-b81d-da5ff558c0f4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SavePrefs",
+                    "type": "Button",
+                    "id": "be941bf1-227c-47da-a828-f85f06e024eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlaceY",
+                    "type": "Value",
+                    "id": "7ac54c3a-c6f4-4cda-8744-d324fc877731",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -152,37 +160,70 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "a5981c39-28ef-4130-923b-b4554f1ee8df",
-                    "path": "<XRController>{RightHand}/{Primary2DAxisTouch}",
+                    "name": "One Modifier",
+                    "id": "6889d095-c900-4d52-8aaf-80f0510458b0",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "e1c68257-5043-47c3-94e0-75226909857c",
+                    "path": "<XRController>{RightHand}/{ThumbrestTouch}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rescale",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "b2adc3f5-a92b-49be-909e-ea0a4c45f85d",
-                    "path": "<XRController>{RightHand}/thumbstickTouched",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rescale",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "87fd8847-e7ea-4101-a99f-5ce671e7ce7f",
+                    "name": "binding",
+                    "id": "fd324a85-b17e-41a8-acbd-677c4b7342ae",
                     "path": "<XRController>{RightHand}/thumbstick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rescale",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "8ea673c6-6418-4599-8b0a-9c5f465ec721",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c07b4198-e3ea-4a36-a560-9c32c3658491",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4bb3f656-8cad-4ae3-90b3-e113992777a7",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rescale",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -275,7 +316,7 @@
                 {
                     "name": "",
                     "id": "4ababe27-362f-471b-8361-afeeb7afb4eb",
-                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -293,6 +334,39 @@
                     "action": "SeeThroughToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "e7eed143-58ce-47c2-a33e-a8cf1efaa4b9",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "945f3c1b-4fae-4b55-b250-bfdbf0fa6626",
+                    "path": "<XRController>{RightHand}/{PrimaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4593f3b6-cd9b-4448-a8cb-ace19bb6e1d0",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -318,17 +392,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5bfde5cf-7384-4e4e-87f3-9e2ea426202b",
-                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EnvironmentToggle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a8da6bba-12a7-4b8b-b8bc-05ae9cdf32fd",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -337,6 +400,39 @@
                     "action": "EnvironmentToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "ecd57831-7922-4054-99df-945cf77eb736",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnvironmentToggle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0425850a-911d-43eb-b5f3-46b6909756bc",
+                    "path": "<XRController>{RightHand}/{PrimaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnvironmentToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "1efdaf68-f324-4b38-8d43-94fc257dde6f",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnvironmentToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -357,6 +453,144 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextScaleAdjust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5daa82f-1561-4ba9-aa97-b57adb0429a4",
+                    "path": "<XRController>{LeftHand}/{ThumbrestTouch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetRecord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75964176-3038-4475-ba0c-c8dbf9376997",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetRecord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "94e2775c-9d31-404c-981d-4919975dfdb1",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BoardToggle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "09e29b1f-0c67-4864-a1a3-2e54d234d8ce",
+                    "path": "*/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BoardToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "dc8ddd87-992b-4c8c-a256-c36301505be0",
+                    "path": "*/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BoardToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b29fc0d5-4918-435a-9d22-25494b7a06d8",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BoardToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48cf6b85-2f44-44c2-aff1-cb3519fe1fbe",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SavePrefs",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "10e635fb-7691-4453-ac93-ad7f1c322c79",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlaceY",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "5a0754eb-247f-4b7c-b1a8-a0439a812ce5",
+                    "path": "<XRController>{RightHand}/{PrimaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlaceY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d753cdc7-be7c-4948-b03a-318c11b483a2",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlaceY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Gameplay",
+            "id": "26c5aeff-bb09-47e8-a254-d8b96f5ae490",
+            "actions": [
+                {
+                    "name": "AnyInput",
+                    "type": "Button",
+                    "id": "b82353de-a368-4675-ace6-38f367bf2b5f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "74f43de7-ee42-489d-9c11-c96c1c3c0ee8",
+                    "path": "*/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

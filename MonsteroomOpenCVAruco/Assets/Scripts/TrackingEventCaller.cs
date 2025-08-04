@@ -6,47 +6,48 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using NUnit.Framework;
 public class TrackingEventCaller : MonoBehaviour
 {
     MyInputMap myInputMap;
     [SerializeField] private Transform trackingTarget;
-    // [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform playerTransform;
     [SerializeField] private IgnoreVector3Option moveIgnore;
-    [SerializeField] private IgnoreVector3Option RotationIgnore;
+    [SerializeField] private IgnoreVector3Option rotationIgnore;
     [SerializeField] private float timeWindow;
     [SerializeField] private float moveThreshold;
-    [SerializeField] private float moveThresholdTime;
-    float moveTimer;
     [SerializeField] private float rotateThreshold;
-    [SerializeField] private float rotateThresholdTime;
-    float rotateTimer;
-    // [SerializeField] private float playerMoveThreshold;
-    // [SerializeField] private float playerMoveThresholdTime;
-    // float playerMoveTimer;
+    [SerializeField] private float playerTimeWindow;
+    [SerializeField] private float playerMoveThreshold;
+    [SerializeField] private float playerRotateThreshold;
 
     [Header("UI Board")]
-    public TextMeshProUGUI timeWindow_text;
-    public TextMeshProUGUI moveThreshold_text, rotateThreshold_text;
-    public TextMeshProUGUI log_text;
+    public GameObject UI_Board;
+    public TextMeshProUGUI timeWindow_text, moveThreshold_text, rotateThreshold_text;
+    public TextMeshProUGUI playerTimeWindow_text, playerMoveThreshold_text, playerRotateThreshold_text;
+    public TextMeshProUGUI log_text, playerLog_text;
     public UnityEngine.UI.Image move_img, rotate_img;
+    public UnityEngine.UI.Image playerMove_img, playerRotate_img;
+    public TextMeshProUGUI distBeween_text;
 
+    [Header("Event")]
+    public UnityEvent OnMove, OnStopMove, OnRotate, OnStopRotate;
+    public UnityEvent OnPlayerMove, OnPlayerStopMove, OnPlayerRotate, OnPlayerStopRotate;
 
-
-    Vector3 currentPos, oldPos;
-    Quaternion currentRot, oldRot;
-    // Vector3 playerCurrentPos, playerOldPos;
-    // Quaternion playerCurrentRot, playerOldRot;
+    Vector3 currentPos, playerCurrentPos;
+    Quaternion currentRot, playerCurrentRot;
     public bool IsMoving;
     bool wasMoving;
     public bool IsRotating;
     bool wasRotating;
-    // public bool IsPlayerMoving;
-    // bool wasPlayerMoving;
-    // public bool IsPlayerRotating;
-    // bool wasPlayerRotating;
+    public bool IsPlayerMoving;
+    bool wasPlayerMoving;
+    public bool IsPlayerRotating;
+    bool wasPlayerRotating;
     float minMovingDist, maxMovingDist, minRotatingDist, maxRotatingDist, movingDist, rotatingDist;
+    float minPlayerMovingDist, maxPlayerMovingDist, minPlayerRotatingDist, maxPlayerRotatingDist, playerMovingDist, playerRotatingDist;
     LinkedList<(float time, Vector3 pos, Quaternion rot)> historyPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot)>();
-
+    LinkedList<(float time, Vector3 pos, Quaternion rot)> playerHistoryPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot)>();
     int adjustingVariable = 0;
     float adjustScale = 0.001f;
     void Awake()
@@ -56,35 +57,39 @@ public class TrackingEventCaller : MonoBehaviour
     void OnEnable()
     {
         myInputMap.TestKey.Enable();
-        myInputMap.TestKey.NextClip.started += ctx => ResetValue();
+        myInputMap.TestKey.NextClip.started += ctx => ResetObserveValue();
+        myInputMap.TestKey.ResetRecord.started += ctx => ResetObserveValue();
         myInputMap.TestKey.NextVariable.started += ctx => SelectAdjustingVariable();
         myInputMap.TestKey.Adjust.started += AdjustVariable;
         myInputMap.TestKey.Adjust.performed += AdjustVariable;
         myInputMap.TestKey.Adjust.canceled += AdjustVariable;
         myInputMap.TestKey.NextScaleAdjust.started += ctx => SelectAdjustScale();
+        myInputMap.TestKey.BoardToggle.started += ctx => BoardToggler();
+        myInputMap.TestKey.SavePrefs.started += ctx => SavePlayerPrefs();
     }
-    void ResetValue()
+    void Start()
     {
-        minMovingDist = 0;
-        maxMovingDist = 0;
-        minRotatingDist = 0;
-        maxRotatingDist = 0;
-        ShowText();
+        GetPlayerPrefs();
+    }
+    void OnApplicationPause(bool pause)
+    {
+        SavePlayerPrefs();
+    }
+    void OnApplicationQuit()
+    {
+        SavePlayerPrefs();
     }
 
     void Update()
     {
-        currentPos = FilteredPos(trackingTarget.position);
-        currentRot = FilteredRotaion(trackingTarget.rotation);
-        // playerCurrentPos = FilteredPos(playerTransform.position);
-        // playerCurrentRot = FilteredRotaion(playerTransform.rotation);
+        currentPos = IgnoreVector3Option.FilteredPosition(moveIgnore, trackingTarget.position);
+        currentRot = IgnoreVector3Option.FilteredRotation(rotationIgnore, trackingTarget.rotation);
+        playerCurrentPos = IgnoreVector3Option.FilteredPosition(moveIgnore, playerTransform.position);
+        playerCurrentRot = IgnoreVector3Option.FilteredRotation(rotationIgnore, playerTransform.rotation);
 
         float now = Time.time;
-        historyPoints.AddLast((now, currentPos, currentRot));
-        while (historyPoints.Count > 0 && now - historyPoints.First.Value.time > timeWindow + 0.05f)
-        {
-            historyPoints.RemoveFirst();
-        }
+        WriteHistory(historyPoints, now, currentPos, currentRot, timeWindow);
+        WriteHistory(playerHistoryPoints, now, playerCurrentPos, playerCurrentRot, playerTimeWindow);
 
         CheckMovingState();
         CheckRotatingState();
@@ -92,37 +97,10 @@ public class TrackingEventCaller : MonoBehaviour
         CheckPlayerRotatingState();
 
         UpdateLogBoard();
-
-        oldPos = currentPos;
-        oldRot = currentRot;
-        // playerOldPos = playerCurrentPos;
-        // playerOldRot = playerCurrentRot;
     }
 
     void CheckMovingState()
     {
-        #region 
-        // if (Vector3.Distance(currentPos, oldPos) > moveThreshold)
-        // {
-        //     moveTimer += Time.deltaTime;
-        //     if (moveThresholdTime >= moveTimer)
-        //     {
-        //         IsMoving = true;
-        //     }
-        // }
-        // else
-        // {
-        //     moveTimer = 0;
-        //     IsMoving = false;
-        // }
-
-        // if (IsMoving != wasMoving)
-        // {
-        //     Debug.Log("Moving State Change: " + IsMoving);
-        // }
-        // wasMoving = IsMoving;
-        #endregion
-
         foreach (var record in historyPoints)
         {
             float age = Time.time - record.time;
@@ -140,6 +118,13 @@ public class TrackingEventCaller : MonoBehaviour
         }
 
         IsMoving = (movingDist > moveThreshold) ? true : false;
+
+        if (IsMoving != wasMoving)
+        {
+            if (IsMoving) OnMove.Invoke();
+            else OnStopMove.Invoke();
+        }
+        wasMoving = IsMoving;
     }
     void CheckRotatingState()
     {
@@ -160,121 +145,219 @@ public class TrackingEventCaller : MonoBehaviour
         }
 
         IsRotating = (rotatingDist > rotateThreshold) ? true : false;
+
+        if (IsRotating != wasRotating)
+        {
+            if (IsRotating) OnRotate.Invoke();
+            else OnStopMove.Invoke();
+        }
+        wasRotating = IsRotating;
     }
     void CheckPlayerMovingState()
     {
+        foreach (var record in playerHistoryPoints)
+        {
+            float age = Time.time - record.time;
+            if (age >= playerTimeWindow)
+            {
+                playerMovingDist = Vector3.Distance(playerCurrentPos, record.pos);
+            }
+        }
 
+        if (playerMovingDist > 0)
+        {
+            if (minPlayerMovingDist == 0) minPlayerMovingDist = playerMovingDist;
+            if (playerMovingDist < minPlayerMovingDist) minPlayerMovingDist = playerMovingDist;
+            if (playerMovingDist > maxPlayerMovingDist) maxPlayerMovingDist = playerMovingDist;
+        }
+
+        IsPlayerMoving = (playerMovingDist > playerMoveThreshold) ? true : false;
+
+        if (IsPlayerMoving != wasPlayerMoving)
+        {
+            if (IsPlayerMoving) OnPlayerMove.Invoke();
+            else OnPlayerStopMove.Invoke();
+        }
+        wasPlayerMoving = IsPlayerMoving;
     }
     void CheckPlayerRotatingState()
     {
+        foreach (var record in playerHistoryPoints)
+        {
+            float age = Time.time - record.time;
+            if (age >= playerTimeWindow)
+            {
+                playerRotatingDist = Quaternion.Angle(playerCurrentRot, record.rot);
+            }
+        }
 
+        if (playerRotatingDist > 0)
+        {
+            if (minPlayerRotatingDist == 0) minPlayerRotatingDist = playerRotatingDist;
+            if (playerRotatingDist < minPlayerRotatingDist) minPlayerRotatingDist = playerRotatingDist;
+            if (playerRotatingDist > maxPlayerRotatingDist) maxPlayerRotatingDist = playerRotatingDist;
+        }
+
+        IsPlayerRotating = (playerRotatingDist > playerRotateThreshold) ? true : false;
+
+        if (IsPlayerRotating != wasPlayerRotating)
+        {
+            if (IsPlayerRotating) OnPlayerRotate.Invoke();
+            else OnPlayerStopRotate.Invoke();
+        }
     }
 
-    // float DistanceBetween()
-    // {
-    //     return Vector3.Distance(currentPos, playerCurrentPos);
-    // }
-    void ShowText()
+    float DistanceBetween()
     {
-        // var movingDist = Vector3.Distance(currentPos, oldPos);
-
-
-        string t = "Pos Difference: " + movingDist + "\n"
-            + "Rot Difference: " + Vector3.Distance(currentRot.eulerAngles, oldRot.eulerAngles) + "\n"
-            + "\n"
-            + "Min Moving Distance: " + minMovingDist + "\n"
-            + "Max Moving Distance: " + maxMovingDist + "\n"
-            + "Min Rotating Distance: " + minRotatingDist + "\n"
-            + "Max Rotating Distance: " + maxRotatingDist + "\n";
-        log_text.text = t;
+        return Vector3.Distance(currentPos, playerCurrentPos);
     }
     void UpdateLogBoard()
     {
-        timeWindow_text.text = timeWindow.ToString("0.000000");
-        moveThreshold_text.text = moveThreshold.ToString("0.000000");
-        rotateThreshold_text.text = rotateThreshold.ToString("0.000000");
+        timeWindow_text.text = timeWindow.ToString("0.000");
+        moveThreshold_text.text = moveThreshold.ToString("0.000");
+        rotateThreshold_text.text = rotateThreshold.ToString("0.000");
+
+        playerTimeWindow_text.text = playerTimeWindow.ToString("0.000");
+        playerMoveThreshold_text.text = playerMoveThreshold.ToString("0.000");
+        playerRotateThreshold_text.text = playerRotateThreshold.ToString("0.000");
 
         move_img.color = IsMoving ? Color.green : Color.red;
         rotate_img.color = IsRotating ? Color.green : Color.red;
+        playerMove_img.color = IsPlayerMoving ? Color.green : Color.red;
+        playerRotate_img.color = IsPlayerRotating ? Color.green : Color.red;
 
-        string t = "Pos Difference: " + movingDist.ToString("0.000000") + "\n"
-            + "Rot Difference: " + rotatingDist.ToString("0.000000") + "\n"
+        distBeween_text.text = DistanceBetween().ToString("0.000");
+
+        string t = "Pos Difference: " + movingDist.ToString("0.0000") + "\n"
+            + "Rot Difference: " + rotatingDist.ToString("0.0000") + "\n"
             + "\n"
-            + "Min Moving Distance: " + minMovingDist.ToString("0.000000") + "\n"
-            + "Max Moving Distance: " + maxMovingDist.ToString("0.000000") + "\n"
-            + "Min Rotating Distance: " + minRotatingDist.ToString("0.000000") + "\n"
-            + "Max Rotating Distance: " + maxRotatingDist.ToString("0.000000") + "\n";
+            + "Min Moving Distance: " + minMovingDist.ToString("0.0000") + "\n"
+            + "Max Moving Distance: " + maxMovingDist.ToString("0.0000") + "\n"
+            + "Min Rotating Distance: " + minRotatingDist.ToString("0.0000") + "\n"
+            + "Max Rotating Distance: " + maxRotatingDist.ToString("0.0000") + "\n";
         log_text.text = t;
+
+        string pt = "Pos Difference: " + playerMovingDist.ToString("0.0000") + "\n"
+            + "Rot Difference: " + playerRotatingDist.ToString("0.0000") + "\n"
+            + "\n"
+            + "Min Moving Distance: " + minPlayerMovingDist.ToString("0.0000") + "\n"
+            + "Max Moving Distance: " + maxPlayerMovingDist.ToString("0.0000") + "\n"
+            + "Min Rotating Distance: " + minPlayerRotatingDist.ToString("0.0000") + "\n"
+            + "Max Rotating Distance: " + maxPlayerRotatingDist.ToString("0.0000") + "\n";
+        playerLog_text.text = pt;
     }
-
-    public void Set_TimeWindow(float value) { timeWindow = value; }
-    public void Set_TimeWindow(string value) { timeWindow = float.Parse(value); }
-    public void Set_MoveThreshold(float value) { moveThreshold = value; }
-    public void Set_MoveThreshold(string value) { moveThreshold = float.Parse(value); }
-    public void Set_RotateThreshold(float value) { rotateThreshold = value; }
-    public void Set_RotateThreshold(string value) { rotateThreshold = float.Parse(value); }
-
+    void BoardToggler()
+    {
+        UI_Board.SetActive(!UI_Board.activeSelf);
+    }
     void SelectAdjustingVariable()
     {
         adjustingVariable += 1;
-        if (adjustingVariable > 2) adjustingVariable = 0;
+        if (adjustingVariable > 6) adjustingVariable = 0;
 
-        timeWindow_text.fontSize = 36;
-        moveThreshold_text.fontSize = 36;
-        rotateThreshold_text.fontSize = 36;
+        SetFontSize(timeWindow_text, 36);
+        SetFontSize(moveThreshold_text, 36);
+        SetFontSize(rotateThreshold_text, 36);
+        SetFontSize(playerTimeWindow_text, 36);
+        SetFontSize(playerMoveThreshold_text, 36);
+        SetFontSize(playerRotateThreshold_text, 36);
         switch (adjustingVariable)
         {
-            case 0:
-                timeWindow_text.fontSize = 42;
-                break;
             case 1:
-                moveThreshold_text.fontSize = 42;
+                SetFontSize(timeWindow_text, 42);
                 break;
             case 2:
-                rotateThreshold_text.fontSize = 42;
+                SetFontSize(moveThreshold_text, 42);
+                break;
+            case 3:
+                SetFontSize(rotateThreshold_text, 42);
+                break;
+            case 4:
+                SetFontSize(playerTimeWindow_text, 42);
+                break;
+            case 5:
+                SetFontSize(playerMoveThreshold_text, 42);
+                break;
+            case 6:
+                SetFontSize(playerRotateThreshold_text, 42);
+                break;
+            default:
                 break;
         }
     }
+    void SetFontSize(TextMeshProUGUI t, float value) { t.fontSize = value; }
     void SelectAdjustScale()
     {
         adjustScale *= 10;
-        if (adjustScale > 1) adjustScale = 0.001f;
+        if (adjustingVariable > 0 && adjustScale > 1) adjustScale = 0.001f;
     }
     void AdjustVariable(InputAction.CallbackContext ctx)
     {
         Vector2 value = ctx.ReadValue<Vector2>();
         switch (adjustingVariable)
         {
-            case 0:
-                timeWindow += value.y > 0 ? adjustScale : -adjustScale;
-                break;
             case 1:
-                moveThreshold += value.y > 0 ? adjustScale : -adjustScale;
+                timeWindow += AdjustValue(value.y > 0);
                 break;
             case 2:
-                rotateThreshold += value.y > 0 ? adjustScale : -adjustScale;
+                moveThreshold += AdjustValue(value.y > 0);
+                break;
+            case 3:
+                rotateThreshold += AdjustValue(value.y > 0);
+                break;
+            case 4:
+                playerTimeWindow += AdjustValue(value.y > 0);
+                break;
+            case 5:
+                playerMoveThreshold += AdjustValue(value.y > 0);
+                break;
+            case 6:
+                playerRotateThreshold += AdjustValue(value.y > 0);
+                break;
+            default:
                 break;
         }
     }
-    Vector3 FilteredPos(Vector3 value)
+    float AdjustValue(bool condi) { return condi ? adjustScale : -adjustScale; }
+    void ResetObserveValue()
     {
-        float newX = moveIgnore.ignoreX ? 0 : value.x;
-        float newY = moveIgnore.ignoreY ? 0 : value.y;
-        float newZ = moveIgnore.ignoreZ ? 0 : value.z;
-        return new Vector3(newX, newY, newZ);
+        minMovingDist = 0;
+        maxMovingDist = 0;
+        minRotatingDist = 0;
+        maxRotatingDist = 0;
+        minPlayerMovingDist = 0;
+        maxPlayerMovingDist = 0;
+        minPlayerRotatingDist = 0;
+        maxPlayerRotatingDist = 0;
+        UpdateLogBoard();
     }
-    Quaternion FilteredRotaion(Quaternion value)
+    void WriteHistory(LinkedList<(float time, Vector3 pos, Quaternion rot)> list, float time, Vector3 position, Quaternion rotation, float window)
     {
-        var rot = value.eulerAngles;
-        float newX = moveIgnore.ignoreX ? 0 : rot.x;
-        float newY = moveIgnore.ignoreY ? 0 : rot.y;
-        float newZ = moveIgnore.ignoreZ ? 0 : rot.z;
-        return Quaternion.Euler(new Vector3(newX, newY, newZ));
+        list.AddLast((time, position, rotation));
+        while (list.Count > 0 && time - list.First.Value.time > window + 0.05f)
+        {
+            list.RemoveFirst();
+        }
     }
-}
-
-[System.Serializable]
-public class IgnoreVector3Option
-{
-    public bool ignoreX, ignoreY, ignoreZ;
+    void SavePlayerPrefs()
+    {
+        SetPrefsFloat("timeWindow", timeWindow);
+        SetPrefsFloat("moveThreshold", moveThreshold);
+        SetPrefsFloat("rotateThreshold", rotateThreshold);
+        SetPrefsFloat("playerTimeWindow", playerTimeWindow);
+        SetPrefsFloat("playerMoveThreshold", playerMoveThreshold);
+        SetPrefsFloat("playerRotateThreshold", playerRotateThreshold);
+        PlayerPrefs.Save();
+    }
+    void GetPlayerPrefs()
+    {
+        timeWindow = PlayerPrefs.GetFloat("timeWindow", timeWindow);
+        moveThreshold = PlayerPrefs.GetFloat("moveThreshold", moveThreshold);
+        rotateThreshold = PlayerPrefs.GetFloat("rotateThreshold", rotateThreshold);
+        playerTimeWindow = PlayerPrefs.GetFloat("playerTimeWindow", playerTimeWindow);
+        playerMoveThreshold = PlayerPrefs.GetFloat("playerMoveThreshold", playerMoveThreshold);
+        playerRotateThreshold = PlayerPrefs.GetFloat("playerRotateThreshold", playerRotateThreshold);
+        UpdateLogBoard();
+    }
+    void SetPrefsFloat(string keyName, float value) { PlayerPrefs.SetFloat(keyName, value); }
 }

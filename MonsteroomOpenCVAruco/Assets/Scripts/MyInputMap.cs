@@ -88,34 +88,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     ""name"": ""MyInputMap"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
-            ""id"": ""26c5aeff-bb09-47e8-a254-d8b96f5ae490"",
-            ""actions"": [
-                {
-                    ""name"": ""AnyInput"",
-                    ""type"": ""Button"",
-                    ""id"": ""b82353de-a368-4675-ace6-38f367bf2b5f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""74f43de7-ee42-489d-9c11-c96c1c3c0ee8"",
-                    ""path"": ""*/{TriggerButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AnyInput"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""TestKey"",
             ""id"": ""8ca9678f-cd24-49a9-8918-26655b6bb298"",
             ""actions"": [
@@ -156,18 +128,27 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""SeeThroughToggle"",
+                    ""name"": ""NextVariable"",
                     ""type"": ""Button"",
-                    ""id"": ""5cc0434c-29f6-448b-b073-c827864fb347"",
+                    ""id"": ""ba25cc76-9ce5-47fc-9d56-075d925b9da0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""NextVariable"",
+                    ""name"": ""NextScaleAdjust"",
                     ""type"": ""Button"",
-                    ""id"": ""ba25cc76-9ce5-47fc-9d56-075d925b9da0"",
+                    ""id"": ""a55fb272-9b6b-4926-98d9-7fb0777a2729"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SeeThroughToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""5cc0434c-29f6-448b-b073-c827864fb347"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -183,13 +164,40 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""NextScaleAdjust"",
+                    ""name"": ""ResetRecord"",
                     ""type"": ""Button"",
-                    ""id"": ""a55fb272-9b6b-4926-98d9-7fb0777a2729"",
+                    ""id"": ""ed126be2-e7b1-4978-9e21-05bea02dd4c5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BoardToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""54d093c2-98fc-4775-b81d-da5ff558c0f4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SavePrefs"",
+                    ""type"": ""Button"",
+                    ""id"": ""be941bf1-227c-47da-a828-f85f06e024eb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlaceY"",
+                    ""type"": ""Value"",
+                    ""id"": ""7ac54c3a-c6f4-4cda-8744-d324fc877731"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -238,37 +246,70 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""a5981c39-28ef-4130-923b-b4554f1ee8df"",
-                    ""path"": ""<XRController>{RightHand}/{Primary2DAxisTouch}"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""6889d095-c900-4d52-8aaf-80f0510458b0"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rescale"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""e1c68257-5043-47c3-94e0-75226909857c"",
+                    ""path"": ""<XRController>{RightHand}/{ThumbrestTouch}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rescale"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""b2adc3f5-a92b-49be-909e-ea0a4c45f85d"",
-                    ""path"": ""<XRController>{RightHand}/thumbstickTouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rescale"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""87fd8847-e7ea-4101-a99f-5ce671e7ce7f"",
+                    ""name"": ""binding"",
+                    ""id"": ""fd324a85-b17e-41a8-acbd-677c4b7342ae"",
                     ""path"": ""<XRController>{RightHand}/thumbstick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rescale"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""8ea673c6-6418-4599-8b0a-9c5f465ec721"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rescale"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""c07b4198-e3ea-4a36-a560-9c32c3658491"",
+                    ""path"": ""<XRController>{RightHand}/{GripButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rescale"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""4bb3f656-8cad-4ae3-90b3-e113992777a7"",
+                    ""path"": ""<XRController>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rescale"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -361,7 +402,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4ababe27-362f-471b-8361-afeeb7afb4eb"",
-                    ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -379,6 +420,39 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""SeeThroughToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""e7eed143-58ce-47c2-a33e-a8cf1efaa4b9"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""945f3c1b-4fae-4b55-b250-bfdbf0fa6626"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""4593f3b6-cd9b-4448-a8cb-ace19bb6e1d0"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -404,17 +478,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5bfde5cf-7384-4e4e-87f3-9e2ea426202b"",
-                    ""path"": ""<XRController>{LeftHand}/{SecondaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EnvironmentToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""a8da6bba-12a7-4b8b-b8bc-05ae9cdf32fd"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -423,6 +486,39 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""EnvironmentToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""ecd57831-7922-4054-99df-945cf77eb736"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnvironmentToggle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""0425850a-911d-43eb-b5f3-46b6909756bc"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnvironmentToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""1efdaf68-f324-4b38-8d43-94fc257dde6f"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnvironmentToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -445,31 +541,173 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""NextScaleAdjust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5daa82f-1561-4ba9-aa97-b57adb0429a4"",
+                    ""path"": ""<XRController>{LeftHand}/{ThumbrestTouch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetRecord"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75964176-3038-4475-ba0c-c8dbf9376997"",
+                    ""path"": ""<XRController>{LeftHand}/{GripButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetRecord"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""94e2775c-9d31-404c-981d-4919975dfdb1"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BoardToggle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""09e29b1f-0c67-4864-a1a3-2e54d234d8ce"",
+                    ""path"": ""*/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BoardToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""dc8ddd87-992b-4c8c-a256-c36301505be0"",
+                    ""path"": ""*/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BoardToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b29fc0d5-4918-435a-9d22-25494b7a06d8"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BoardToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48cf6b85-2f44-44c2-aff1-cb3519fe1fbe"",
+                    ""path"": ""<XRController>{LeftHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SavePrefs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""10e635fb-7691-4453-ac93-ad7f1c322c79"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceY"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""5a0754eb-247f-4b7c-b1a8-a0439a812ce5"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""d753cdc7-be7c-4948-b03a-318c11b483a2"",
+                    ""path"": ""<XRController>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Gameplay"",
+            ""id"": ""26c5aeff-bb09-47e8-a254-d8b96f5ae490"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""b82353de-a368-4675-ace6-38f367bf2b5f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""74f43de7-ee42-489d-9c11-c96c1c3c0ee8"",
+                    ""path"": ""*/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
         // TestKey
         m_TestKey = asset.FindActionMap("TestKey", throwIfNotFound: true);
         m_TestKey_NextClip = m_TestKey.FindAction("NextClip", throwIfNotFound: true);
         m_TestKey_PreviousClip = m_TestKey.FindAction("PreviousClip", throwIfNotFound: true);
         m_TestKey_Rescale = m_TestKey.FindAction("Rescale", throwIfNotFound: true);
         m_TestKey_Adjust = m_TestKey.FindAction("Adjust", throwIfNotFound: true);
-        m_TestKey_SeeThroughToggle = m_TestKey.FindAction("SeeThroughToggle", throwIfNotFound: true);
         m_TestKey_NextVariable = m_TestKey.FindAction("NextVariable", throwIfNotFound: true);
-        m_TestKey_EnvironmentToggle = m_TestKey.FindAction("EnvironmentToggle", throwIfNotFound: true);
         m_TestKey_NextScaleAdjust = m_TestKey.FindAction("NextScaleAdjust", throwIfNotFound: true);
+        m_TestKey_SeeThroughToggle = m_TestKey.FindAction("SeeThroughToggle", throwIfNotFound: true);
+        m_TestKey_EnvironmentToggle = m_TestKey.FindAction("EnvironmentToggle", throwIfNotFound: true);
+        m_TestKey_ResetRecord = m_TestKey.FindAction("ResetRecord", throwIfNotFound: true);
+        m_TestKey_BoardToggle = m_TestKey.FindAction("BoardToggle", throwIfNotFound: true);
+        m_TestKey_SavePrefs = m_TestKey.FindAction("SavePrefs", throwIfNotFound: true);
+        m_TestKey_PlaceY = m_TestKey.FindAction("PlaceY", throwIfNotFound: true);
+        // Gameplay
+        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
     }
 
     ~@MyInputMap()
     {
-        UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, MyInputMap.Gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_TestKey.enabled, "This will cause a leak and performance issues, MyInputMap.TestKey.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, MyInputMap.Gameplay.Disable() has not been called.");
     }
 
     /// <summary>
@@ -541,6 +779,223 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     {
         return asset.FindBinding(bindingMask, out action);
     }
+
+    // TestKey
+    private readonly InputActionMap m_TestKey;
+    private List<ITestKeyActions> m_TestKeyActionsCallbackInterfaces = new List<ITestKeyActions>();
+    private readonly InputAction m_TestKey_NextClip;
+    private readonly InputAction m_TestKey_PreviousClip;
+    private readonly InputAction m_TestKey_Rescale;
+    private readonly InputAction m_TestKey_Adjust;
+    private readonly InputAction m_TestKey_NextVariable;
+    private readonly InputAction m_TestKey_NextScaleAdjust;
+    private readonly InputAction m_TestKey_SeeThroughToggle;
+    private readonly InputAction m_TestKey_EnvironmentToggle;
+    private readonly InputAction m_TestKey_ResetRecord;
+    private readonly InputAction m_TestKey_BoardToggle;
+    private readonly InputAction m_TestKey_SavePrefs;
+    private readonly InputAction m_TestKey_PlaceY;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "TestKey".
+    /// </summary>
+    public struct TestKeyActions
+    {
+        private @MyInputMap m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public TestKeyActions(@MyInputMap wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextClip".
+        /// </summary>
+        public InputAction @NextClip => m_Wrapper.m_TestKey_NextClip;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/PreviousClip".
+        /// </summary>
+        public InputAction @PreviousClip => m_Wrapper.m_TestKey_PreviousClip;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/Rescale".
+        /// </summary>
+        public InputAction @Rescale => m_Wrapper.m_TestKey_Rescale;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/Adjust".
+        /// </summary>
+        public InputAction @Adjust => m_Wrapper.m_TestKey_Adjust;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextVariable".
+        /// </summary>
+        public InputAction @NextVariable => m_Wrapper.m_TestKey_NextVariable;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextScaleAdjust".
+        /// </summary>
+        public InputAction @NextScaleAdjust => m_Wrapper.m_TestKey_NextScaleAdjust;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/SeeThroughToggle".
+        /// </summary>
+        public InputAction @SeeThroughToggle => m_Wrapper.m_TestKey_SeeThroughToggle;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/EnvironmentToggle".
+        /// </summary>
+        public InputAction @EnvironmentToggle => m_Wrapper.m_TestKey_EnvironmentToggle;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/ResetRecord".
+        /// </summary>
+        public InputAction @ResetRecord => m_Wrapper.m_TestKey_ResetRecord;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/BoardToggle".
+        /// </summary>
+        public InputAction @BoardToggle => m_Wrapper.m_TestKey_BoardToggle;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/SavePrefs".
+        /// </summary>
+        public InputAction @SavePrefs => m_Wrapper.m_TestKey_SavePrefs;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/PlaceY".
+        /// </summary>
+        public InputAction @PlaceY => m_Wrapper.m_TestKey_PlaceY;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_TestKey; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="TestKeyActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(TestKeyActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions" />
+        public void AddCallbacks(ITestKeyActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TestKeyActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Add(instance);
+            @NextClip.started += instance.OnNextClip;
+            @NextClip.performed += instance.OnNextClip;
+            @NextClip.canceled += instance.OnNextClip;
+            @PreviousClip.started += instance.OnPreviousClip;
+            @PreviousClip.performed += instance.OnPreviousClip;
+            @PreviousClip.canceled += instance.OnPreviousClip;
+            @Rescale.started += instance.OnRescale;
+            @Rescale.performed += instance.OnRescale;
+            @Rescale.canceled += instance.OnRescale;
+            @Adjust.started += instance.OnAdjust;
+            @Adjust.performed += instance.OnAdjust;
+            @Adjust.canceled += instance.OnAdjust;
+            @NextVariable.started += instance.OnNextVariable;
+            @NextVariable.performed += instance.OnNextVariable;
+            @NextVariable.canceled += instance.OnNextVariable;
+            @NextScaleAdjust.started += instance.OnNextScaleAdjust;
+            @NextScaleAdjust.performed += instance.OnNextScaleAdjust;
+            @NextScaleAdjust.canceled += instance.OnNextScaleAdjust;
+            @SeeThroughToggle.started += instance.OnSeeThroughToggle;
+            @SeeThroughToggle.performed += instance.OnSeeThroughToggle;
+            @SeeThroughToggle.canceled += instance.OnSeeThroughToggle;
+            @EnvironmentToggle.started += instance.OnEnvironmentToggle;
+            @EnvironmentToggle.performed += instance.OnEnvironmentToggle;
+            @EnvironmentToggle.canceled += instance.OnEnvironmentToggle;
+            @ResetRecord.started += instance.OnResetRecord;
+            @ResetRecord.performed += instance.OnResetRecord;
+            @ResetRecord.canceled += instance.OnResetRecord;
+            @BoardToggle.started += instance.OnBoardToggle;
+            @BoardToggle.performed += instance.OnBoardToggle;
+            @BoardToggle.canceled += instance.OnBoardToggle;
+            @SavePrefs.started += instance.OnSavePrefs;
+            @SavePrefs.performed += instance.OnSavePrefs;
+            @SavePrefs.canceled += instance.OnSavePrefs;
+            @PlaceY.started += instance.OnPlaceY;
+            @PlaceY.performed += instance.OnPlaceY;
+            @PlaceY.canceled += instance.OnPlaceY;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions" />
+        private void UnregisterCallbacks(ITestKeyActions instance)
+        {
+            @NextClip.started -= instance.OnNextClip;
+            @NextClip.performed -= instance.OnNextClip;
+            @NextClip.canceled -= instance.OnNextClip;
+            @PreviousClip.started -= instance.OnPreviousClip;
+            @PreviousClip.performed -= instance.OnPreviousClip;
+            @PreviousClip.canceled -= instance.OnPreviousClip;
+            @Rescale.started -= instance.OnRescale;
+            @Rescale.performed -= instance.OnRescale;
+            @Rescale.canceled -= instance.OnRescale;
+            @Adjust.started -= instance.OnAdjust;
+            @Adjust.performed -= instance.OnAdjust;
+            @Adjust.canceled -= instance.OnAdjust;
+            @NextVariable.started -= instance.OnNextVariable;
+            @NextVariable.performed -= instance.OnNextVariable;
+            @NextVariable.canceled -= instance.OnNextVariable;
+            @NextScaleAdjust.started -= instance.OnNextScaleAdjust;
+            @NextScaleAdjust.performed -= instance.OnNextScaleAdjust;
+            @NextScaleAdjust.canceled -= instance.OnNextScaleAdjust;
+            @SeeThroughToggle.started -= instance.OnSeeThroughToggle;
+            @SeeThroughToggle.performed -= instance.OnSeeThroughToggle;
+            @SeeThroughToggle.canceled -= instance.OnSeeThroughToggle;
+            @EnvironmentToggle.started -= instance.OnEnvironmentToggle;
+            @EnvironmentToggle.performed -= instance.OnEnvironmentToggle;
+            @EnvironmentToggle.canceled -= instance.OnEnvironmentToggle;
+            @ResetRecord.started -= instance.OnResetRecord;
+            @ResetRecord.performed -= instance.OnResetRecord;
+            @ResetRecord.canceled -= instance.OnResetRecord;
+            @BoardToggle.started -= instance.OnBoardToggle;
+            @BoardToggle.performed -= instance.OnBoardToggle;
+            @BoardToggle.canceled -= instance.OnBoardToggle;
+            @SavePrefs.started -= instance.OnSavePrefs;
+            @SavePrefs.performed -= instance.OnSavePrefs;
+            @SavePrefs.canceled -= instance.OnSavePrefs;
+            @PlaceY.started -= instance.OnPlaceY;
+            @PlaceY.performed -= instance.OnPlaceY;
+            @PlaceY.canceled -= instance.OnPlaceY;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />.
+        /// </summary>
+        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
+        public void RemoveCallbacks(ITestKeyActions instance)
+        {
+            if (m_Wrapper.m_TestKeyActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="TestKeyActions.AddCallbacks(ITestKeyActions)" />
+        /// <seealso cref="TestKeyActions.RemoveCallbacks(ITestKeyActions)" />
+        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
+        public void SetCallbacks(ITestKeyActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TestKeyActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="TestKeyActions" /> instance referencing this action map.
+    /// </summary>
+    public TestKeyActions @TestKey => new TestKeyActions(this);
 
     // Gameplay
     private readonly InputActionMap m_Gameplay;
@@ -637,194 +1092,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="GameplayActions" /> instance referencing this action map.
     /// </summary>
     public GameplayActions @Gameplay => new GameplayActions(this);
-
-    // TestKey
-    private readonly InputActionMap m_TestKey;
-    private List<ITestKeyActions> m_TestKeyActionsCallbackInterfaces = new List<ITestKeyActions>();
-    private readonly InputAction m_TestKey_NextClip;
-    private readonly InputAction m_TestKey_PreviousClip;
-    private readonly InputAction m_TestKey_Rescale;
-    private readonly InputAction m_TestKey_Adjust;
-    private readonly InputAction m_TestKey_SeeThroughToggle;
-    private readonly InputAction m_TestKey_NextVariable;
-    private readonly InputAction m_TestKey_EnvironmentToggle;
-    private readonly InputAction m_TestKey_NextScaleAdjust;
-    /// <summary>
-    /// Provides access to input actions defined in input action map "TestKey".
-    /// </summary>
-    public struct TestKeyActions
-    {
-        private @MyInputMap m_Wrapper;
-
-        /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
-        /// </summary>
-        public TestKeyActions(@MyInputMap wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/NextClip".
-        /// </summary>
-        public InputAction @NextClip => m_Wrapper.m_TestKey_NextClip;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/PreviousClip".
-        /// </summary>
-        public InputAction @PreviousClip => m_Wrapper.m_TestKey_PreviousClip;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/Rescale".
-        /// </summary>
-        public InputAction @Rescale => m_Wrapper.m_TestKey_Rescale;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/Adjust".
-        /// </summary>
-        public InputAction @Adjust => m_Wrapper.m_TestKey_Adjust;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/SeeThroughToggle".
-        /// </summary>
-        public InputAction @SeeThroughToggle => m_Wrapper.m_TestKey_SeeThroughToggle;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/NextVariable".
-        /// </summary>
-        public InputAction @NextVariable => m_Wrapper.m_TestKey_NextVariable;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/EnvironmentToggle".
-        /// </summary>
-        public InputAction @EnvironmentToggle => m_Wrapper.m_TestKey_EnvironmentToggle;
-        /// <summary>
-        /// Provides access to the underlying input action "TestKey/NextScaleAdjust".
-        /// </summary>
-        public InputAction @NextScaleAdjust => m_Wrapper.m_TestKey_NextScaleAdjust;
-        /// <summary>
-        /// Provides access to the underlying input action map instance.
-        /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_TestKey; }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
-        public void Enable() { Get().Enable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
-        public void Disable() { Get().Disable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
-        public bool enabled => Get().enabled;
-        /// <summary>
-        /// Implicitly converts an <see ref="TestKeyActions" /> to an <see ref="InputActionMap" /> instance.
-        /// </summary>
-        public static implicit operator InputActionMap(TestKeyActions set) { return set.Get(); }
-        /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <param name="instance">Callback instance.</param>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
-        /// </remarks>
-        /// <seealso cref="TestKeyActions" />
-        public void AddCallbacks(ITestKeyActions instance)
-        {
-            if (instance == null || m_Wrapper.m_TestKeyActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Add(instance);
-            @NextClip.started += instance.OnNextClip;
-            @NextClip.performed += instance.OnNextClip;
-            @NextClip.canceled += instance.OnNextClip;
-            @PreviousClip.started += instance.OnPreviousClip;
-            @PreviousClip.performed += instance.OnPreviousClip;
-            @PreviousClip.canceled += instance.OnPreviousClip;
-            @Rescale.started += instance.OnRescale;
-            @Rescale.performed += instance.OnRescale;
-            @Rescale.canceled += instance.OnRescale;
-            @Adjust.started += instance.OnAdjust;
-            @Adjust.performed += instance.OnAdjust;
-            @Adjust.canceled += instance.OnAdjust;
-            @SeeThroughToggle.started += instance.OnSeeThroughToggle;
-            @SeeThroughToggle.performed += instance.OnSeeThroughToggle;
-            @SeeThroughToggle.canceled += instance.OnSeeThroughToggle;
-            @NextVariable.started += instance.OnNextVariable;
-            @NextVariable.performed += instance.OnNextVariable;
-            @NextVariable.canceled += instance.OnNextVariable;
-            @EnvironmentToggle.started += instance.OnEnvironmentToggle;
-            @EnvironmentToggle.performed += instance.OnEnvironmentToggle;
-            @EnvironmentToggle.canceled += instance.OnEnvironmentToggle;
-            @NextScaleAdjust.started += instance.OnNextScaleAdjust;
-            @NextScaleAdjust.performed += instance.OnNextScaleAdjust;
-            @NextScaleAdjust.canceled += instance.OnNextScaleAdjust;
-        }
-
-        /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <remarks>
-        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
-        /// </remarks>
-        /// <seealso cref="TestKeyActions" />
-        private void UnregisterCallbacks(ITestKeyActions instance)
-        {
-            @NextClip.started -= instance.OnNextClip;
-            @NextClip.performed -= instance.OnNextClip;
-            @NextClip.canceled -= instance.OnNextClip;
-            @PreviousClip.started -= instance.OnPreviousClip;
-            @PreviousClip.performed -= instance.OnPreviousClip;
-            @PreviousClip.canceled -= instance.OnPreviousClip;
-            @Rescale.started -= instance.OnRescale;
-            @Rescale.performed -= instance.OnRescale;
-            @Rescale.canceled -= instance.OnRescale;
-            @Adjust.started -= instance.OnAdjust;
-            @Adjust.performed -= instance.OnAdjust;
-            @Adjust.canceled -= instance.OnAdjust;
-            @SeeThroughToggle.started -= instance.OnSeeThroughToggle;
-            @SeeThroughToggle.performed -= instance.OnSeeThroughToggle;
-            @SeeThroughToggle.canceled -= instance.OnSeeThroughToggle;
-            @NextVariable.started -= instance.OnNextVariable;
-            @NextVariable.performed -= instance.OnNextVariable;
-            @NextVariable.canceled -= instance.OnNextVariable;
-            @EnvironmentToggle.started -= instance.OnEnvironmentToggle;
-            @EnvironmentToggle.performed -= instance.OnEnvironmentToggle;
-            @EnvironmentToggle.canceled -= instance.OnEnvironmentToggle;
-            @NextScaleAdjust.started -= instance.OnNextScaleAdjust;
-            @NextScaleAdjust.performed -= instance.OnNextScaleAdjust;
-            @NextScaleAdjust.canceled -= instance.OnNextScaleAdjust;
-        }
-
-        /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />.
-        /// </summary>
-        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
-        public void RemoveCallbacks(ITestKeyActions instance)
-        {
-            if (m_Wrapper.m_TestKeyActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
-        /// </summary>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
-        /// </remarks>
-        /// <seealso cref="TestKeyActions.AddCallbacks(ITestKeyActions)" />
-        /// <seealso cref="TestKeyActions.RemoveCallbacks(ITestKeyActions)" />
-        /// <seealso cref="TestKeyActions.UnregisterCallbacks(ITestKeyActions)" />
-        public void SetCallbacks(ITestKeyActions instance)
-        {
-            foreach (var item in m_Wrapper.m_TestKeyActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_TestKeyActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    /// <summary>
-    /// Provides a new <see cref="TestKeyActions" /> instance referencing this action map.
-    /// </summary>
-    public TestKeyActions @TestKey => new TestKeyActions(this);
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="GameplayActions.AddCallbacks(IGameplayActions)" />
-    /// <seealso cref="GameplayActions.RemoveCallbacks(IGameplayActions)" />
-    public interface IGameplayActions
-    {
-        /// <summary>
-        /// Method invoked when associated input action "AnyInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAnyInput(InputAction.CallbackContext context);
-    }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "TestKey" which allows adding and removing callbacks.
     /// </summary>
@@ -861,19 +1128,26 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAdjust(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SeeThroughToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSeeThroughToggle(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "NextVariable" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNextVariable(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NextScaleAdjust" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextScaleAdjust(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SeeThroughToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSeeThroughToggle(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "EnvironmentToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -882,11 +1156,47 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEnvironmentToggle(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "NextScaleAdjust" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ResetRecord" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNextScaleAdjust(InputAction.CallbackContext context);
+        void OnResetRecord(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BoardToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBoardToggle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SavePrefs" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSavePrefs(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PlaceY" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPlaceY(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="GameplayActions.AddCallbacks(IGameplayActions)" />
+    /// <seealso cref="GameplayActions.RemoveCallbacks(IGameplayActions)" />
+    public interface IGameplayActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "AnyInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAnyInput(InputAction.CallbackContext context);
     }
 }

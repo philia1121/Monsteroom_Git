@@ -398,7 +398,7 @@ AnimatorStateMachine:
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 20, y: -10, z: 0}
-  m_EntryPosition: {x: 490, y: -100, z: 0}
+  m_EntryPosition: {x: 500, y: -80, z: 0}
   m_ExitPosition: {x: 20, y: 30, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -291543029641616714}
@@ -431,6 +431,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-2600690432578364953
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsLieBelly
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5887563890050120872}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.65384614
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-2421108683414649775
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -685,10 +710,10 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+  - {fileID: 743553450034134979}
   - {fileID: -3762012162568980671}
   - {fileID: -8383278714298757568}
   - {fileID: 8832145234959970633}
-  - {fileID: 743553450034134979}
   - {fileID: 7556404452945218337}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -713,7 +738,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Arm_Spitz|Lie_belly_end
-  m_Speed: 1
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6959331327858084833}
@@ -744,7 +769,7 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: MovingSpeed
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 0.33
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
@@ -752,7 +777,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: LieBellyBlend
     m_Type: 1
@@ -782,7 +807,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: IsLieBellySleep
     m_Type: 4
@@ -1205,6 +1230,7 @@ AnimatorState:
   - {fileID: -8673504585235195418}
   - {fileID: -6349722568220239266}
   - {fileID: -840853428302685106}
+  - {fileID: -2600690432578364953}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1228,7 +1254,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lie Belly Start
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3446376990261368146}
