@@ -252,6 +252,8 @@ public class TrackingEventCaller : MonoBehaviour
     }
     void SelectAdjustingVariable()
     {
+        if (!UI_Board.activeSelf) return;
+
         adjustingVariable += 1;
         if (adjustingVariable > 6) adjustingVariable = 0;
 
@@ -288,11 +290,15 @@ public class TrackingEventCaller : MonoBehaviour
     void SetFontSize(TextMeshProUGUI t, float value) { t.fontSize = value; }
     void SelectAdjustScale()
     {
+        if (!UI_Board.activeSelf) return;
+        
         adjustScale *= 10;
         if (adjustingVariable > 0 && adjustScale > 1) adjustScale = 0.001f;
     }
     void AdjustVariable(InputAction.CallbackContext ctx)
     {
+        if (!UI_Board.activeSelf) return;
+        
         Vector2 value = ctx.ReadValue<Vector2>();
         switch (adjustingVariable)
         {
