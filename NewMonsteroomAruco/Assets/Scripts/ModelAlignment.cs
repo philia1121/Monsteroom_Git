@@ -11,6 +11,9 @@ public class ModelAlignment : MonoBehaviour
     [SerializeField] private bool alignPosition = true;
     [SerializeField] private bool alignRotation = true;
     [SerializeField] private IgnoreVector3Option posIgnore, rotIgnore;
+    [SerializeField] private bool useSmoothDamp = false;
+    [SerializeField] private float smoothTime = 0.2f;
+    Vector3 velocity = Vector3.zero;
     void Start()
     {
         if (!follower)
@@ -22,11 +25,12 @@ public class ModelAlignment : MonoBehaviour
         if (alignPosition)
         {
             var newPos = IgnoreVector3Option.FilteredPosition(posIgnore, target.position);
-            follower.transform.position = new Vector3(
+            var finalPos = new Vector3(
                 posIgnore.ignoreX ? follower.position.x : newPos.x,
                 posIgnore.ignoreY ? follower.position.y : newPos.y,
                 posIgnore.ignoreZ ? follower.position.z : newPos.z
             );
+            follower.transform.position = useSmoothDamp ? Vector3.SmoothDamp(transform.position, finalPos, ref velocity, smoothTime) : finalPos;
         }
 
         if (alignRotation)
