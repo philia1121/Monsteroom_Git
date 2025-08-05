@@ -522,6 +522,17 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1e1eaa70-94cd-4743-a610-d2da3de993c1"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnvironmentToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""1f34446a-646d-4ebc-aa59-924744d50994"",
                     ""path"": ""<XRController>{LeftHand}/{SecondaryButton}"",
                     ""interactions"": """",
