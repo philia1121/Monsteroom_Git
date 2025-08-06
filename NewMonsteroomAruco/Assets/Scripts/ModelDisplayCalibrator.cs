@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class ModelDisplayCalibrator : MonoBehaviour
 {
-    public Transform scalingTransform, posYTransform;
+    public Transform scalingTransform, offsetTransform;
     MyInputMap myInputMap;
+    int currentAdjust = 1;
     void Awake()
     {
         myInputMap = new MyInputMap();
@@ -15,14 +16,24 @@ public class ModelDisplayCalibrator : MonoBehaviour
         myInputMap.TestKey.Rescale.performed += Rescale;
         myInputMap.TestKey.Rescale.canceled += Rescale;
         myInputMap.TestKey.Rescale.canceled += ctx => SavePrefs();
-        myInputMap.TestKey.PlaceY.started += PlaceY;
-        myInputMap.TestKey.PlaceY.performed += PlaceY;
-        myInputMap.TestKey.PlaceY.canceled += PlaceY;
-        myInputMap.TestKey.PlaceY.canceled += ctx => SavePrefs();
+        myInputMap.TestKey.SavePrefs.started += ctx => SavePrefs();
+        myInputMap.TestKey.PlaceAdjust.started += PlaceOffsetAdjust;
+        myInputMap.TestKey.PlaceAdjust.performed += PlaceOffsetAdjust;
+        myInputMap.TestKey.PlaceAdjust.canceled += PlaceOffsetAdjust;
+        myInputMap.TestKey.PlaceAdjust.canceled += ctx => SavePrefs();
+        myInputMap.TestKey.NextPlaceOption.started += ctx => SelectAdjust();
     }
     void Start()
     {
         GetPrefs();
+    }
+    void OnApplicationPause(bool pause)
+    {
+        if (pause) SavePrefs();
+    }
+    void OnApplicationQuit()
+    {
+        SavePrefs();
     }
     void Rescale(InputAction.CallbackContext ctx)
     {
@@ -36,23 +47,33 @@ public class ModelDisplayCalibrator : MonoBehaviour
             scalingTransform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
         }
     }
-    void PlaceY(InputAction.CallbackContext ctx)
+    void SelectAdjust()
+    {
+        currentAdjust += 1;
+        if (currentAdjust > 2) currentAdjust = 0;
+    }
+    void PlaceOffsetAdjust(InputAction.CallbackContext ctx)
     {
         Vector2 value = ctx.ReadValue<Vector2>();
-        var nowPos = posYTransform.position;
-        posYTransform.position = new Vector3(nowPos.x, nowPos.y + value.y * 0.1f, nowPos.z);
+        var nowPos = offsetTransform.position;
+        var adjustment = new Vector3(currentAdjust == 0 ? value.y * 0.1f : 0, currentAdjust == 1 ? value.y * 0.1f : 0, currentAdjust == 2 ? value.y * 0.1f : 0);
+        offsetTransform.position = nowPos + adjustment;
     }
     void SavePrefs()
     {
         PlayerPrefs.SetFloat("localScale", scalingTransform.localScale.x);
-        PlayerPrefs.SetFloat("posY", posYTransform.position.y);
+        PlayerPrefs.GetFloat("posX", offsetTransform.position.x);
+        PlayerPrefs.SetFloat("posY", offsetTransform.position.y);
+        PlayerPrefs.GetFloat("posZ", offsetTransform.position.z);
         PlayerPrefs.Save();
     }
     void GetPrefs()
     {
         var scale = PlayerPrefs.GetFloat("localScale", scalingTransform.localScale.x);
-        var posY = PlayerPrefs.GetFloat("posY", posYTransform.position.y);
+        var posX = PlayerPrefs.GetFloat("posX", offsetTransform.position.x);
+        var posY = PlayerPrefs.GetFloat("posY", offsetTransform.position.y);
+        var posZ = PlayerPrefs.GetFloat("posZ", offsetTransform.position.z);
         scalingTransform.localScale = new Vector3(scale, scale, scale);
-        posYTransform.position = new Vector3(posYTransform.position.x, posY, posYTransform.position.z);
+        offsetTransform.position = new Vector3(posX, posY, posZ);
     }
 }

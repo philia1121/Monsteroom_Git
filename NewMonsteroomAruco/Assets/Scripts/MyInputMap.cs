@@ -191,13 +191,22 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PlaceY"",
+                    ""name"": ""PlaceAdjust"",
                     ""type"": ""Value"",
                     ""id"": ""7ac54c3a-c6f4-4cda-8744-d324fc877731"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""NextPlaceOption"",
+                    ""type"": ""Button"",
+                    ""id"": ""c568e867-c0ce-460c-9d07-13f95ad75424"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -401,17 +410,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4ababe27-362f-471b-8361-afeeb7afb4eb"",
-                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SeeThroughToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e0995f24-1a77-45b5-860d-cb68ce1d3c32"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -420,39 +418,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""SeeThroughToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""e7eed143-58ce-47c2-a33e-a8cf1efaa4b9"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SeeThroughToggle"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""945f3c1b-4fae-4b55-b250-bfdbf0fa6626"",
-                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SeeThroughToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""4593f3b6-cd9b-4448-a8cb-ace19bb6e1d0"",
-                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SeeThroughToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -466,30 +431,8 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""16015db4-0fba-427a-ac40-bfecf7fee3fa"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NextVariable"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a8da6bba-12a7-4b8b-b8bc-05ae9cdf32fd"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EnvironmentToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""One Modifier"",
-                    ""id"": ""ecd57831-7922-4054-99df-945cf77eb736"",
+                    ""id"": ""c22eedf5-3377-4955-9c78-5c02ffe1bc7a"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -500,8 +443,8 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""modifier"",
-                    ""id"": ""0425850a-911d-43eb-b5f3-46b6909756bc"",
-                    ""path"": ""<XRController>{RightHand}/{PrimaryTrigger}"",
+                    ""id"": ""5e1138b5-8d85-41b8-b271-0532d372f51c"",
+                    ""path"": ""<XRController>{RightHand}/{GripButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -511,7 +454,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""binding"",
-                    ""id"": ""1efdaf68-f324-4b38-8d43-94fc257dde6f"",
+                    ""id"": ""62a7f518-401b-4d60-94bf-e061e3e8276d"",
                     ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -522,30 +465,8 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1e1eaa70-94cd-4743-a610-d2da3de993c1"",
-                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EnvironmentToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1f34446a-646d-4ebc-aa59-924744d50994"",
                     ""path"": ""<XRController>{LeftHand}/{SecondaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NextScaleAdjust"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""92d82ca7-d37b-4f66-b01b-b4a028668aa7"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -631,24 +552,35 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""29d18424-b845-405a-be28-83980724076e"",
+                    ""path"": ""*/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SavePrefs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""One Modifier"",
                     ""id"": ""10e635fb-7691-4453-ac93-ad7f1c322c79"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlaceY"",
+                    ""action"": ""PlaceAdjust"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""modifier"",
                     ""id"": ""5a0754eb-247f-4b7c-b1a8-a0439a812ce5"",
-                    ""path"": ""*/{TriggerButton}"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlaceY"",
+                    ""action"": ""PlaceAdjust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -659,9 +591,141 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlaceY"",
+                    ""action"": ""PlaceAdjust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""1bb1d94d-353f-4a10-94b4-196e1a8e980a"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""d7a37f70-24eb-4b6a-9ca0-e2a14c4a7a32"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""68adf491-a2ed-4550-9ff4-183e847875a9"",
+                    ""path"": ""<XRController>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""604a9f66-4285-47d9-8b81-16496f092616"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a354ce02-7738-4573-9afe-20ac2f5b6221"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e22cbcb3-178c-4acb-9e79-354a67593442"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e02ec4c7-1bf9-4828-82df-db4e136a4abc"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""be5a576c-473e-4b55-9d8e-977d6388cbde"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceAdjust"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""7d1e9cef-191d-4a49-8a96-77e176785ad4"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPlaceOption"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""3c974a98-7e36-4dce-9017-6e19e0cfc86c"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPlaceOption"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""be7b9123-b28e-4a51-b4f7-e757933051c0"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPlaceOption"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c614405a-a89b-4bb4-8802-fd5378ef89f6"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPlaceOption"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -709,7 +773,8 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey_ResetRecord = m_TestKey.FindAction("ResetRecord", throwIfNotFound: true);
         m_TestKey_BoardToggle = m_TestKey.FindAction("BoardToggle", throwIfNotFound: true);
         m_TestKey_SavePrefs = m_TestKey.FindAction("SavePrefs", throwIfNotFound: true);
-        m_TestKey_PlaceY = m_TestKey.FindAction("PlaceY", throwIfNotFound: true);
+        m_TestKey_PlaceAdjust = m_TestKey.FindAction("PlaceAdjust", throwIfNotFound: true);
+        m_TestKey_NextPlaceOption = m_TestKey.FindAction("NextPlaceOption", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
@@ -805,7 +870,8 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_TestKey_ResetRecord;
     private readonly InputAction m_TestKey_BoardToggle;
     private readonly InputAction m_TestKey_SavePrefs;
-    private readonly InputAction m_TestKey_PlaceY;
+    private readonly InputAction m_TestKey_PlaceAdjust;
+    private readonly InputAction m_TestKey_NextPlaceOption;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -862,9 +928,13 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @SavePrefs => m_Wrapper.m_TestKey_SavePrefs;
         /// <summary>
-        /// Provides access to the underlying input action "TestKey/PlaceY".
+        /// Provides access to the underlying input action "TestKey/PlaceAdjust".
         /// </summary>
-        public InputAction @PlaceY => m_Wrapper.m_TestKey_PlaceY;
+        public InputAction @PlaceAdjust => m_Wrapper.m_TestKey_PlaceAdjust;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/NextPlaceOption".
+        /// </summary>
+        public InputAction @NextPlaceOption => m_Wrapper.m_TestKey_NextPlaceOption;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -924,9 +994,12 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @SavePrefs.started += instance.OnSavePrefs;
             @SavePrefs.performed += instance.OnSavePrefs;
             @SavePrefs.canceled += instance.OnSavePrefs;
-            @PlaceY.started += instance.OnPlaceY;
-            @PlaceY.performed += instance.OnPlaceY;
-            @PlaceY.canceled += instance.OnPlaceY;
+            @PlaceAdjust.started += instance.OnPlaceAdjust;
+            @PlaceAdjust.performed += instance.OnPlaceAdjust;
+            @PlaceAdjust.canceled += instance.OnPlaceAdjust;
+            @NextPlaceOption.started += instance.OnNextPlaceOption;
+            @NextPlaceOption.performed += instance.OnNextPlaceOption;
+            @NextPlaceOption.canceled += instance.OnNextPlaceOption;
         }
 
         /// <summary>
@@ -971,9 +1044,12 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @SavePrefs.started -= instance.OnSavePrefs;
             @SavePrefs.performed -= instance.OnSavePrefs;
             @SavePrefs.canceled -= instance.OnSavePrefs;
-            @PlaceY.started -= instance.OnPlaceY;
-            @PlaceY.performed -= instance.OnPlaceY;
-            @PlaceY.canceled -= instance.OnPlaceY;
+            @PlaceAdjust.started -= instance.OnPlaceAdjust;
+            @PlaceAdjust.performed -= instance.OnPlaceAdjust;
+            @PlaceAdjust.canceled -= instance.OnPlaceAdjust;
+            @NextPlaceOption.started -= instance.OnNextPlaceOption;
+            @NextPlaceOption.performed -= instance.OnNextPlaceOption;
+            @NextPlaceOption.canceled -= instance.OnNextPlaceOption;
         }
 
         /// <summary>
@@ -1188,12 +1264,19 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSavePrefs(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "PlaceY" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "PlaceAdjust" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPlaceY(InputAction.CallbackContext context);
+        void OnPlaceAdjust(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NextPlaceOption" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextPlaceOption(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.

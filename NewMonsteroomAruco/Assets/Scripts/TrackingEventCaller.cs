@@ -31,7 +31,8 @@ public class TrackingEventCaller : MonoBehaviour
     public TextMeshProUGUI distBeween_text;
 
     [Header("Event")]
-    public UnityEvent OnMove, OnStopMove, OnRotate, OnStopRotate;
+    public UnityEvent OnMove;
+    public UnityEvent OnStopMove, OnRotate, OnStopRotate;
     public UnityEvent OnPlayerMove, OnPlayerStopMove, OnPlayerRotate, OnPlayerStopRotate;
 
     Vector3 currentPos, playerCurrentPos;
@@ -73,7 +74,7 @@ public class TrackingEventCaller : MonoBehaviour
     }
     void OnApplicationPause(bool pause)
     {
-        SavePlayerPrefs();
+        if (pause) SavePlayerPrefs();
     }
     void OnApplicationQuit()
     {
@@ -291,14 +292,14 @@ public class TrackingEventCaller : MonoBehaviour
     void SelectAdjustScale()
     {
         if (!UI_Board.activeSelf) return;
-        
+
         adjustScale *= 10;
         if (adjustingVariable > 0 && adjustScale > 1) adjustScale = 0.001f;
     }
     void AdjustVariable(InputAction.CallbackContext ctx)
     {
         if (!UI_Board.activeSelf) return;
-        
+
         Vector2 value = ctx.ReadValue<Vector2>();
         switch (adjustingVariable)
         {
