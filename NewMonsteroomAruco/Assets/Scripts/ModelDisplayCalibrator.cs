@@ -22,6 +22,7 @@ public class ModelDisplayCalibrator : MonoBehaviour
         myInputMap.TestKey.PlaceAdjust.canceled += PlaceOffsetAdjust;
         myInputMap.TestKey.PlaceAdjust.canceled += ctx => SavePrefs();
         myInputMap.TestKey.NextPlaceOption.started += ctx => SelectAdjust();
+        myInputMap.TestKey.DeletePrefs.started += ctx => DeletePrefs();
     }
     void Start()
     {
@@ -29,11 +30,11 @@ public class ModelDisplayCalibrator : MonoBehaviour
     }
     void OnApplicationPause(bool pause)
     {
-        if (pause) SavePrefs();
+        if (pause && !dontSave) SavePrefs();
     }
     void OnApplicationQuit()
     {
-        SavePrefs();
+        if (!dontSave) SavePrefs();
     }
     void Rescale(InputAction.CallbackContext ctx)
     {
@@ -76,4 +77,10 @@ public class ModelDisplayCalibrator : MonoBehaviour
         scalingTransform.localScale = new Vector3(scale, scale, scale);
         offsetTransform.position = new Vector3(posX, posY, posZ);
     }
+    void DeletePrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        dontSave = true;
+    }
+    bool dontSave = false;
 }

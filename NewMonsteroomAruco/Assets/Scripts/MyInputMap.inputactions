@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DeletePrefs",
+                    "type": "Button",
+                    "id": "789b795c-0945-441c-a006-a993358359f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -334,6 +343,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "One Modifier",
+                    "id": "a7b36bc5-add6-4ab6-92d4-1ecc761ff827",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b5828d20-5fca-4bc6-b323-16e5e7f59bbb",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "40ecd427-b2e5-40cb-a7f5-b09644d8c300",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeeThroughToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "6a5012d3-a97c-424d-bba6-f382a4f89e67",
                     "path": "<XRController>{LeftHand}/{PrimaryButton}",
@@ -451,28 +493,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "BoardToggle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "48cf6b85-2f44-44c2-aff1-cb3519fe1fbe",
-                    "path": "<XRController>{LeftHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SavePrefs",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "29d18424-b845-405a-be28-83980724076e",
-                    "path": "*/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SavePrefs",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -640,6 +660,50 @@
                     "action": "NextPlaceOption",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "faba4b05-dd69-4a5d-8613-92fb10da7b04",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeletePrefs",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "5905166e-af3b-40a3-b48e-13c04fcb130d",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeletePrefs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "8ea33907-32c7-45cb-b466-08d253dbd494",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeletePrefs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "3c66cf88-e391-44fe-ade9-a7409d7b2900",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeletePrefs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

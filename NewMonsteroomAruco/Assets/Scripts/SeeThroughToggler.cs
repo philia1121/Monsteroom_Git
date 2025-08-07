@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class SeeThroughToggler : MonoBehaviour
 {
     MyInputMap myInputMap;
-    public GameObject environment;
+    public GameObject environment, coords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -16,6 +16,7 @@ public class SeeThroughToggler : MonoBehaviour
     {
         myInputMap.TestKey.Enable();
         myInputMap.TestKey.EnvironmentToggle.started += ctx => EnvironmentToggle();
+        myInputMap.TestKey.SeeThroughToggle.started += ctx => SeeCoordsToggle();
     }
     void OnDisable()
     {
@@ -25,5 +26,9 @@ public class SeeThroughToggler : MonoBehaviour
     void EnvironmentToggle()
     {
         environment.SetActive(!environment.activeSelf);
+    }
+    void SeeCoordsToggle()
+    {
+        coords.SetActive(!coords.activeSelf);
     }
 }

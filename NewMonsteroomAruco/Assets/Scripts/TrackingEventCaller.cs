@@ -67,6 +67,7 @@ public class TrackingEventCaller : MonoBehaviour
         myInputMap.TestKey.NextScaleAdjust.started += ctx => SelectAdjustScale();
         myInputMap.TestKey.BoardToggle.started += ctx => BoardToggler();
         myInputMap.TestKey.SavePrefs.started += ctx => SavePlayerPrefs();
+        myInputMap.TestKey.DeletePrefs.started += ctx => DeletePrefs();
     }
     void Start()
     {
@@ -74,11 +75,11 @@ public class TrackingEventCaller : MonoBehaviour
     }
     void OnApplicationPause(bool pause)
     {
-        if (pause) SavePlayerPrefs();
+        if (pause && !dontSave) SavePlayerPrefs();
     }
     void OnApplicationQuit()
     {
-        SavePlayerPrefs();
+        if (!dontSave) SavePlayerPrefs();
     }
 
     void Update()
@@ -367,4 +368,10 @@ public class TrackingEventCaller : MonoBehaviour
         UpdateLogBoard();
     }
     void SetPrefsFloat(string keyName, float value) { PlayerPrefs.SetFloat(keyName, value); }
+    void DeletePrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        dontSave = true;
+    }
+    bool dontSave = false;
 }

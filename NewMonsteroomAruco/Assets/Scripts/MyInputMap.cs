@@ -207,6 +207,15 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeletePrefs"",
+                    ""type"": ""Button"",
+                    ""id"": ""789b795c-0945-441c-a006-a993358359f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -420,6 +429,39 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""a7b36bc5-add6-4ab6-92d4-1ecc761ff827"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""b5828d20-5fca-4bc6-b323-16e5e7f59bbb"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""40ecd427-b2e5-40cb-a7f5-b09644d8c300"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeeThroughToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""6a5012d3-a97c-424d-bba6-f382a4f89e67"",
                     ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
@@ -537,28 +579,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""BoardToggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""48cf6b85-2f44-44c2-aff1-cb3519fe1fbe"",
-                    ""path"": ""<XRController>{LeftHand}/{TriggerButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SavePrefs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""29d18424-b845-405a-be28-83980724076e"",
-                    ""path"": ""*/{TriggerButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SavePrefs"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -726,6 +746,50 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""NextPlaceOption"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""faba4b05-dd69-4a5d-8613-92fb10da7b04"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeletePrefs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""5905166e-af3b-40a3-b48e-13c04fcb130d"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeletePrefs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""8ea33907-32c7-45cb-b466-08d253dbd494"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeletePrefs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3c66cf88-e391-44fe-ade9-a7409d7b2900"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeletePrefs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -775,6 +839,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey_SavePrefs = m_TestKey.FindAction("SavePrefs", throwIfNotFound: true);
         m_TestKey_PlaceAdjust = m_TestKey.FindAction("PlaceAdjust", throwIfNotFound: true);
         m_TestKey_NextPlaceOption = m_TestKey.FindAction("NextPlaceOption", throwIfNotFound: true);
+        m_TestKey_DeletePrefs = m_TestKey.FindAction("DeletePrefs", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
@@ -872,6 +937,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_TestKey_SavePrefs;
     private readonly InputAction m_TestKey_PlaceAdjust;
     private readonly InputAction m_TestKey_NextPlaceOption;
+    private readonly InputAction m_TestKey_DeletePrefs;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -935,6 +1001,10 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "TestKey/NextPlaceOption".
         /// </summary>
         public InputAction @NextPlaceOption => m_Wrapper.m_TestKey_NextPlaceOption;
+        /// <summary>
+        /// Provides access to the underlying input action "TestKey/DeletePrefs".
+        /// </summary>
+        public InputAction @DeletePrefs => m_Wrapper.m_TestKey_DeletePrefs;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1000,6 +1070,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @NextPlaceOption.started += instance.OnNextPlaceOption;
             @NextPlaceOption.performed += instance.OnNextPlaceOption;
             @NextPlaceOption.canceled += instance.OnNextPlaceOption;
+            @DeletePrefs.started += instance.OnDeletePrefs;
+            @DeletePrefs.performed += instance.OnDeletePrefs;
+            @DeletePrefs.canceled += instance.OnDeletePrefs;
         }
 
         /// <summary>
@@ -1050,6 +1123,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @NextPlaceOption.started -= instance.OnNextPlaceOption;
             @NextPlaceOption.performed -= instance.OnNextPlaceOption;
             @NextPlaceOption.canceled -= instance.OnNextPlaceOption;
+            @DeletePrefs.started -= instance.OnDeletePrefs;
+            @DeletePrefs.performed -= instance.OnDeletePrefs;
+            @DeletePrefs.canceled -= instance.OnDeletePrefs;
         }
 
         /// <summary>
@@ -1277,6 +1353,13 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNextPlaceOption(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DeletePrefs" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDeletePrefs(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
