@@ -10,20 +10,28 @@ public class SimpleAudioPlayer : MonoBehaviour
     [SerializeField] private AudioClip[] audioClips;
 
     [Header("Random Setings")]
+    [SerializeField] private bool keepRandomPlay = false;
     [SerializeField] private float minInterval;
     [SerializeField] private float maxInterval;
-    [SerializeField] private bool keepRandomPlay = false;
+    [SerializeField] private int keepRandomCount = 0;
+
+    [Header("Random Volume Setings")]
+    [SerializeField] private bool randomVolume = false;
+    [SerializeField] private float minVolume;
+    [SerializeField] private float maxVolume;
     bool randomPlay = false;
     IEnumerator cor;
 
     public void PlayAudio_RandomPick()
     {
         audioSource.clip = audioClips[audioClips.Length == 1 ? 0 : Random.Range(0, audioClips.Length)];
+        if (randomVolume) audioSource.volume = Random.Range(minVolume, maxVolume);
         if (audioSource.clip != null && !audioSource.isPlaying) audioSource.Play();
     }
     public void PlayAudio_Assigned(AudioClip clip)
     {
         audioSource.clip = clip;
+        if (randomVolume) audioSource.volume = Random.Range(minVolume, maxVolume);
         if (audioSource.clip != null && !audioSource.isPlaying) audioSource.Play();
     }
 
@@ -55,6 +63,8 @@ public class SimpleAudioPlayer : MonoBehaviour
     {
         if (audioClips.Length > 0)
             audioSource.clip = audioClips[audioClips.Length == 1 ? 0 : Random.Range(0, audioClips.Length)];
+
+        if (randomVolume) audioSource.volume = Random.Range(minVolume, maxVolume);
 
         if (audioSource.clip != null && !audioSource.isPlaying)
             audioSource.Play();

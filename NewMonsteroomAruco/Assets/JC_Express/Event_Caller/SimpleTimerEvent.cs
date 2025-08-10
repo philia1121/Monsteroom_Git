@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 public class SimpleTimerEvent : MonoBehaviour
 {
-    [SerializeField]private bool onStartTimer;
+    [SerializeField] private bool onStartTimer;
     public UnityEvent StartTimerEvent;
-    [SerializeField]private bool onEndTimer;
+    [SerializeField] private bool onEndTimer;
     public UnityEvent EndTimerEvent;
 
     [Header("Random Settings")]
@@ -16,19 +16,20 @@ public class SimpleTimerEvent : MonoBehaviour
     bool doRandom;
     IEnumerator cor;
     public UnityEvent RandomTriggerEvent;
-    [SerializeField]private bool showLog = false;
+    [SerializeField] private bool showLog = false;
 
     public void SetSimpleTimer(float duration)
     {
-        if(onStartTimer)
+        if (onStartTimer)
             StartTimerEvent.Invoke();
-            if(showLog) Debug.Log("Invoke on Start Timer: " + this.gameObject.name);
+        if (showLog) Debug.Log("Invoke on Start Timer: " + this.gameObject.name);
         Invoke("SimpleWait", duration);
     }
     void SimpleWait()
     {
-        EndTimerEvent.Invoke();
-        if(showLog) Debug.Log("Invoke on End Timer: " + this.gameObject.name);
+        if (onEndTimer)
+            EndTimerEvent.Invoke();
+        if (showLog) Debug.Log("Invoke on End Timer: " + this.gameObject.name);
     }
 
     public void SetRandomTimer(bool start)

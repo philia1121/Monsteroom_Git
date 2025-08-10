@@ -96,15 +96,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SavePrefs",
-                    "type": "Button",
-                    "id": "be941bf1-227c-47da-a828-f85f06e024eb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PlaceAdjust",
                     "type": "Value",
                     "id": "7ac54c3a-c6f4-4cda-8744-d324fc877731",
@@ -130,53 +121,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SettingsToggel",
+                    "type": "Button",
+                    "id": "355c28d1-9a38-4ad5-83a5-99875fd77241",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "7f68cb09-d990-47b2-8d7b-3e6504d06472",
-                    "path": "<XRController>{RightHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NextClip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c40feacc-792c-4b68-af11-5eaee1065032",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NextClip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de60a219-7527-40f1-b8c6-5be29305eab8",
-                    "path": "<XRController>{RightHand}/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PreviousClip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "afa01b16-4a41-4695-bbf4-a72deb938bbd",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PreviousClip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "One Modifier",
                     "id": "6889d095-c900-4d52-8aaf-80f0510458b0",
@@ -704,6 +660,50 @@
                     "action": "DeletePrefs",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "f3c717ff-223d-44c1-a79f-39c6f804842a",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SettingsToggel",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "29323f22-adcb-43d7-bb72-e9c535abb913",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SettingsToggel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "0eb0d309-36bb-47a3-8a37-3b4c491ac2fc",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SettingsToggel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "9c86001d-aa55-42fa-ab88-85c93e5d837d",
+                    "path": "*/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SettingsToggel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -730,6 +730,65 @@
                     "processors": "",
                     "groups": "",
                     "action": "AnyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Interaction",
+            "id": "eea14565-77dc-40e8-a114-e884981ac455",
+            "actions": [
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "559ba83f-614b-49ce-adb2-5ef03730703f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Put",
+                    "type": "Button",
+                    "id": "b9d25ae3-28a8-4139-9a24-56c8cbf63f38",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8d6be520-b867-4eb8-a2e0-e28e8efc1883",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afb09d5c-b297-4ce5-99e7-6e71deb7c7f9",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a9d2ac1-c748-4b62-b466-7dd76f5fa18e",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Put",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

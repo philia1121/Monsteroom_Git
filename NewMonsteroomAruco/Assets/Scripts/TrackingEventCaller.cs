@@ -7,6 +7,8 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using NUnit.Framework;
+using OpenCvSharp.Util;
+using Unity.Mathematics;
 public class TrackingEventCaller : MonoBehaviour
 {
     MyInputMap myInputMap;
@@ -49,6 +51,7 @@ public class TrackingEventCaller : MonoBehaviour
     float minPlayerMovingDist, maxPlayerMovingDist, minPlayerRotatingDist, maxPlayerRotatingDist, playerMovingDist, playerRotatingDist;
     LinkedList<(float time, Vector3 pos, Quaternion rot)> historyPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot)>();
     LinkedList<(float time, Vector3 pos, Quaternion rot)> playerHistoryPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot)>();
+    LinkedList<(float time, Vector3 pos, Quaternion rot, Vector3 playerPos, Quaternion platerRot)> allHistoryPoints = new LinkedList<(float time, Vector3 pos, Quaternion rot, Vector3 playerPos, Quaternion platerRot)>();
     int adjustingVariable = 0;
     float adjustScale = 0.001f;
     void Awake()
@@ -58,7 +61,6 @@ public class TrackingEventCaller : MonoBehaviour
     void OnEnable()
     {
         myInputMap.TestKey.Enable();
-        myInputMap.TestKey.NextClip.started += ctx => ResetObserveValue();
         myInputMap.TestKey.ResetRecord.started += ctx => ResetObserveValue();
         myInputMap.TestKey.NextVariable.started += ctx => SelectAdjustingVariable();
         myInputMap.TestKey.Adjust.started += AdjustVariable;
@@ -66,7 +68,6 @@ public class TrackingEventCaller : MonoBehaviour
         myInputMap.TestKey.Adjust.canceled += AdjustVariable;
         myInputMap.TestKey.NextScaleAdjust.started += ctx => SelectAdjustScale();
         myInputMap.TestKey.BoardToggle.started += ctx => BoardToggler();
-        myInputMap.TestKey.SavePrefs.started += ctx => SavePlayerPrefs();
         myInputMap.TestKey.DeletePrefs.started += ctx => DeletePrefs();
     }
     void Start()
@@ -91,7 +92,8 @@ public class TrackingEventCaller : MonoBehaviour
 
         float now = Time.time;
         WriteHistory(historyPoints, now, currentPos, currentRot, timeWindow);
-        WriteHistory(playerHistoryPoints, now, playerCurrentPos, playerCurrentRot, playerTimeWindow);
+        WriteHistory(playerHistoryPoints, now, playerCurrentPos, playerCurrentRot, timeWindow);
+        WriteAllHistoryList(now, currentPos, currentRot, playerCurrentPos, playerCurrentRot, timeWindow);
 
         CheckMovingState();
         CheckRotatingState();
@@ -103,12 +105,12 @@ public class TrackingEventCaller : MonoBehaviour
 
     void CheckMovingState()
     {
-        foreach (var record in historyPoints)
+        foreach (var record in allHistoryPoints)
         {
             float age = Time.time - record.time;
             if (age >= timeWindow)
             {
-                movingDist = Vector3.Distance(currentPos, record.pos);
+                movingDist = Vector3.Distance(currentPos, record.pos) - Vector3.Distance(playerCurrentPos, record.playerPos);
             }
         }
 
@@ -160,7 +162,7 @@ public class TrackingEventCaller : MonoBehaviour
         foreach (var record in playerHistoryPoints)
         {
             float age = Time.time - record.time;
-            if (age >= playerTimeWindow)
+            if (age >= timeWindow)
             {
                 playerMovingDist = Vector3.Distance(playerCurrentPos, record.pos);
             }
@@ -187,7 +189,7 @@ public class TrackingEventCaller : MonoBehaviour
         foreach (var record in playerHistoryPoints)
         {
             float age = Time.time - record.time;
-            if (age >= playerTimeWindow)
+            if (age >= timeWindow)
             {
                 playerRotatingDist = Quaternion.Angle(playerCurrentRot, record.rot);
             }
@@ -219,7 +221,7 @@ public class TrackingEventCaller : MonoBehaviour
         moveThreshold_text.text = moveThreshold.ToString("0.000");
         rotateThreshold_text.text = rotateThreshold.ToString("0.000");
 
-        playerTimeWindow_text.text = playerTimeWindow.ToString("0.000");
+        playerTimeWindow_text.text = timeWindow.ToString("0.000");
         playerMoveThreshold_text.text = playerMoveThreshold.ToString("0.000");
         playerRotateThreshold_text.text = playerRotateThreshold.ToString("0.000");
 
@@ -314,7 +316,7 @@ public class TrackingEventCaller : MonoBehaviour
                 rotateThreshold += AdjustValue(value.y > 0);
                 break;
             case 4:
-                playerTimeWindow += AdjustValue(value.y > 0);
+                timeWindow += AdjustValue(value.y > 0);
                 break;
             case 5:
                 playerMoveThreshold += AdjustValue(value.y > 0);
@@ -347,12 +349,20 @@ public class TrackingEventCaller : MonoBehaviour
             list.RemoveFirst();
         }
     }
+    void WriteAllHistoryList(float time, Vector3 pos, Quaternion rot, Vector3 playerPos, Quaternion playerRot, float window)
+    {
+        allHistoryPoints.AddLast((time, pos, rot, playerPos, playerRot));
+        while (allHistoryPoints.Count > 0 && time - allHistoryPoints.First.Value.time > window + 0.05f)
+        {
+            allHistoryPoints.RemoveFirst();
+        }
+    }
     void SavePlayerPrefs()
     {
         SetPrefsFloat("timeWindow", timeWindow);
         SetPrefsFloat("moveThreshold", moveThreshold);
         SetPrefsFloat("rotateThreshold", rotateThreshold);
-        SetPrefsFloat("playerTimeWindow", playerTimeWindow);
+        SetPrefsFloat("playerTimeWindow", timeWindow);
         SetPrefsFloat("playerMoveThreshold", playerMoveThreshold);
         SetPrefsFloat("playerRotateThreshold", playerRotateThreshold);
         PlayerPrefs.Save();
@@ -362,7 +372,7 @@ public class TrackingEventCaller : MonoBehaviour
         timeWindow = PlayerPrefs.GetFloat("timeWindow", timeWindow);
         moveThreshold = PlayerPrefs.GetFloat("moveThreshold", moveThreshold);
         rotateThreshold = PlayerPrefs.GetFloat("rotateThreshold", rotateThreshold);
-        playerTimeWindow = PlayerPrefs.GetFloat("playerTimeWindow", playerTimeWindow);
+        // playerTimeWindow = PlayerPrefs.GetFloat("playerTimeWindow", playerTimeWindow);
         playerMoveThreshold = PlayerPrefs.GetFloat("playerMoveThreshold", playerMoveThreshold);
         playerRotateThreshold = PlayerPrefs.GetFloat("playerRotateThreshold", playerRotateThreshold);
         UpdateLogBoard();

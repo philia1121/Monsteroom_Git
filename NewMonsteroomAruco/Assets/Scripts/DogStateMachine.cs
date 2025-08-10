@@ -41,16 +41,25 @@ public class DogStateMachine : MonoBehaviour
             int nextIndex;
             if (currentState.blendThreshold.Length > 2)
             {
-                do
+                var rd = UnityEngine.Random.Range(0, 1f);
+                var doRandom = rd < 0.9f ? false : true;
+                if (doRandom)
                 {
-                    nextIndex = UnityEngine.Random.Range(0, currentState.blendThreshold.Length);
+                    do
+                    {
+                        nextIndex = UnityEngine.Random.Range(0, currentState.blendThreshold.Length);
+                    }
+                    while (nextIndex == currentState.currentIndex);
                 }
-                while (nextIndex == currentState.currentIndex);
+                else
+                {
+                    nextIndex = 0;
+                }
             }
             else
             {
                 var rd = UnityEngine.Random.Range(0, 1f);
-                nextIndex = rd < 0.8f ? 0 : 1;
+                nextIndex = rd < 0.9f ? 0 : 1;
             }
 
             currentState.currentIndex = nextIndex;

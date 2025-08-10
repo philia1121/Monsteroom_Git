@@ -16,7 +16,6 @@ public class ModelDisplayCalibrator : MonoBehaviour
         myInputMap.TestKey.Rescale.performed += Rescale;
         myInputMap.TestKey.Rescale.canceled += Rescale;
         myInputMap.TestKey.Rescale.canceled += ctx => SavePrefs();
-        myInputMap.TestKey.SavePrefs.started += ctx => SavePrefs();
         myInputMap.TestKey.PlaceAdjust.started += PlaceOffsetAdjust;
         myInputMap.TestKey.PlaceAdjust.performed += PlaceOffsetAdjust;
         myInputMap.TestKey.PlaceAdjust.canceled += PlaceOffsetAdjust;
@@ -57,7 +56,7 @@ public class ModelDisplayCalibrator : MonoBehaviour
     {
         Vector2 value = ctx.ReadValue<Vector2>();
         var nowPos = offsetTransform.position;
-        var adjustment = new Vector3(currentAdjust == 0 ? value.y * 0.1f : 0, currentAdjust == 1 ? value.y * 0.1f : 0, currentAdjust == 2 ? value.y * 0.1f : 0);
+        var adjustment = new Vector3(currentAdjust == 0 ? value.y * 0.05f : 0, currentAdjust == 1 ? value.y * 0.05f : 0, currentAdjust == 2 ? value.y * 0.05f : 0);
         offsetTransform.position = nowPos + adjustment;
     }
     void SavePrefs()
