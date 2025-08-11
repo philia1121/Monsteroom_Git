@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 public class ModelDisplayCalibrator : MonoBehaviour
 {
     public Transform scalingTransform, offsetTransform;
+    public GameObject FPS_Board;
     MyInputMap myInputMap;
     int currentAdjust = 1;
     void Awake()
@@ -22,6 +23,7 @@ public class ModelDisplayCalibrator : MonoBehaviour
         myInputMap.TestKey.PlaceAdjust.canceled += ctx => SavePrefs();
         myInputMap.TestKey.NextPlaceOption.started += ctx => SelectAdjust();
         myInputMap.TestKey.DeletePrefs.started += ctx => DeletePrefs();
+        myInputMap.TestKey.SettingsToggle.started += ctx => SettingsToggle();
     }
     void Start()
     {
@@ -37,6 +39,7 @@ public class ModelDisplayCalibrator : MonoBehaviour
     }
     void Rescale(InputAction.CallbackContext ctx)
     {
+        if (!FPS_Board.activeSelf) return;
         Vector2 value = ctx.ReadValue<Vector2>();
         if (value.y > 0)
         {
@@ -49,11 +52,13 @@ public class ModelDisplayCalibrator : MonoBehaviour
     }
     void SelectAdjust()
     {
+        if (!FPS_Board.activeSelf) return;
         currentAdjust += 1;
         if (currentAdjust > 2) currentAdjust = 0;
     }
     void PlaceOffsetAdjust(InputAction.CallbackContext ctx)
     {
+        if (!FPS_Board.activeSelf) return;
         Vector2 value = ctx.ReadValue<Vector2>();
         var nowPos = offsetTransform.position;
         var adjustment = new Vector3(currentAdjust == 0 ? value.y * 0.05f : 0, currentAdjust == 1 ? value.y * 0.05f : 0, currentAdjust == 2 ? value.y * 0.05f : 0);
@@ -82,4 +87,9 @@ public class ModelDisplayCalibrator : MonoBehaviour
         dontSave = true;
     }
     bool dontSave = false;
+
+    void SettingsToggle()
+    {
+        FPS_Board.SetActive(!FPS_Board.activeSelf);
+    }
 }

@@ -23,6 +23,9 @@ public class TrackingEventCaller : MonoBehaviour
     [SerializeField] private float playerMoveThreshold;
     [SerializeField] private float playerRotateThreshold;
 
+    [Header("Interaction")]
+    [SerializeField] private bool ignoreTrackingControl = false;
+
     [Header("UI Board")]
     public GameObject UI_Board;
     public TextMeshProUGUI timeWindow_text, moveThreshold_text, rotateThreshold_text;
@@ -125,8 +128,12 @@ public class TrackingEventCaller : MonoBehaviour
 
         if (IsMoving != wasMoving)
         {
-            if (IsMoving) OnMove.Invoke();
-            else OnStopMove.Invoke();
+            if (!ignoreTrackingControl)
+            {
+                if (IsMoving) OnMove.Invoke();
+                else OnStopMove.Invoke();
+            }
+
         }
         wasMoving = IsMoving;
     }
@@ -384,4 +391,5 @@ public class TrackingEventCaller : MonoBehaviour
         dontSave = true;
     }
     bool dontSave = false;
+    public void SetIgnoreTrackingControl(bool value) { ignoreTrackingControl = value; }
 }

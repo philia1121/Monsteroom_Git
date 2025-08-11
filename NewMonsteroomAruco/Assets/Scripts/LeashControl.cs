@@ -13,6 +13,7 @@ public class LeashControl : MonoBehaviour
     Vector3 lastPos_RH;
     float lastSpeed_RH;
     public UnityEvent OnSwingLeash;
+    bool disableIK = false;
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class LeashControl : MonoBehaviour
 
         bool swing_RH = Speed_RH < -Swing_Threshold && acceleration_RH < -Acceleration_Threshold;
 
-        if (swing_RH && !coolDown)
+        if (!disableIK && swing_RH && !coolDown)
         {
             OnSwingLeash.Invoke();
             coolDown = true;
@@ -63,4 +64,5 @@ public class LeashControl : MonoBehaviour
         OnSwingLeash.Invoke();
         Debug.Log("triggered");
     }
+    public void SetDisabledIK(bool value) { disableIK = value; }
 }

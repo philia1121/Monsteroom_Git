@@ -69,6 +69,7 @@ public class AimIK : MonoBehaviour
     }
     public void SmoothSetIKeight(float value)
     {
+        StopAllCoroutines();
         StartCoroutine(SmoothLookWeight(LookWeight, value));
     }
     IEnumerator SmoothLookWeight(float current, float target)

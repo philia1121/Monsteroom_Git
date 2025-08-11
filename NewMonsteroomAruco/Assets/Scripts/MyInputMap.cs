@@ -209,7 +209,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SettingsToggel"",
+                    ""name"": ""SettingsToggle"",
                     ""type"": ""Button"",
                     ""id"": ""355c28d1-9a38-4ad5-83a5-99875fd77241"",
                     ""expectedControlType"": """",
@@ -754,7 +754,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SettingsToggel"",
+                    ""action"": ""SettingsToggle"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -765,7 +765,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SettingsToggel"",
+                    ""action"": ""SettingsToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -776,18 +776,18 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SettingsToggel"",
+                    ""action"": ""SettingsToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""binding"",
                     ""id"": ""9c86001d-aa55-42fa-ab88-85c93e5d837d"",
-                    ""path"": ""*/{PrimaryButton}"",
+                    ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SettingsToggel"",
+                    ""action"": ""SettingsToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -859,7 +859,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""afb09d5c-b297-4ce5-99e7-6e71deb7c7f9"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -871,6 +871,28 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""4a9d2ac1-c748-4b62-b466-7dd76f5fa18e"",
                     ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Put"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""509d8a47-1c5d-4457-98cd-751cdb062eaf"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Put"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92d04daa-f03b-4963-ab2a-de66e3272841"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -898,7 +920,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey_PlaceAdjust = m_TestKey.FindAction("PlaceAdjust", throwIfNotFound: true);
         m_TestKey_NextPlaceOption = m_TestKey.FindAction("NextPlaceOption", throwIfNotFound: true);
         m_TestKey_DeletePrefs = m_TestKey.FindAction("DeletePrefs", throwIfNotFound: true);
-        m_TestKey_SettingsToggel = m_TestKey.FindAction("SettingsToggel", throwIfNotFound: true);
+        m_TestKey_SettingsToggle = m_TestKey.FindAction("SettingsToggle", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
@@ -1001,7 +1023,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_TestKey_PlaceAdjust;
     private readonly InputAction m_TestKey_NextPlaceOption;
     private readonly InputAction m_TestKey_DeletePrefs;
-    private readonly InputAction m_TestKey_SettingsToggel;
+    private readonly InputAction m_TestKey_SettingsToggle;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -1066,9 +1088,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @DeletePrefs => m_Wrapper.m_TestKey_DeletePrefs;
         /// <summary>
-        /// Provides access to the underlying input action "TestKey/SettingsToggel".
+        /// Provides access to the underlying input action "TestKey/SettingsToggle".
         /// </summary>
-        public InputAction @SettingsToggel => m_Wrapper.m_TestKey_SettingsToggel;
+        public InputAction @SettingsToggle => m_Wrapper.m_TestKey_SettingsToggle;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1134,9 +1156,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @DeletePrefs.started += instance.OnDeletePrefs;
             @DeletePrefs.performed += instance.OnDeletePrefs;
             @DeletePrefs.canceled += instance.OnDeletePrefs;
-            @SettingsToggel.started += instance.OnSettingsToggel;
-            @SettingsToggel.performed += instance.OnSettingsToggel;
-            @SettingsToggel.canceled += instance.OnSettingsToggel;
+            @SettingsToggle.started += instance.OnSettingsToggle;
+            @SettingsToggle.performed += instance.OnSettingsToggle;
+            @SettingsToggle.canceled += instance.OnSettingsToggle;
         }
 
         /// <summary>
@@ -1187,9 +1209,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @DeletePrefs.started -= instance.OnDeletePrefs;
             @DeletePrefs.performed -= instance.OnDeletePrefs;
             @DeletePrefs.canceled -= instance.OnDeletePrefs;
-            @SettingsToggel.started -= instance.OnSettingsToggel;
-            @SettingsToggel.performed -= instance.OnSettingsToggel;
-            @SettingsToggel.canceled -= instance.OnSettingsToggel;
+            @SettingsToggle.started -= instance.OnSettingsToggle;
+            @SettingsToggle.performed -= instance.OnSettingsToggle;
+            @SettingsToggle.canceled -= instance.OnSettingsToggle;
         }
 
         /// <summary>
@@ -1525,12 +1547,12 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDeletePrefs(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SettingsToggel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SettingsToggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSettingsToggel(InputAction.CallbackContext context);
+        void OnSettingsToggle(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
