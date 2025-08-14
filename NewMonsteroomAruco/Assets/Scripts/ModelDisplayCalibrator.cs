@@ -67,9 +67,9 @@ public class ModelDisplayCalibrator : MonoBehaviour
     void SavePrefs()
     {
         PlayerPrefs.SetFloat("localScale", scalingTransform.localScale.x);
-        PlayerPrefs.GetFloat("posX", offsetTransform.position.x);
+        PlayerPrefs.SetFloat("posX", offsetTransform.position.x);
         PlayerPrefs.SetFloat("posY", offsetTransform.position.y);
-        PlayerPrefs.GetFloat("posZ", offsetTransform.position.z);
+        PlayerPrefs.SetFloat("posZ", offsetTransform.position.z);
         PlayerPrefs.Save();
     }
     void GetPrefs()

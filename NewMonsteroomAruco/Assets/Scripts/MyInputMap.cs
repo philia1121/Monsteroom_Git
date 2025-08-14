@@ -216,6 +216,15 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdjustFloor"",
+                    ""type"": ""Value"",
+                    ""id"": ""758c14c3-60a7-411e-9f5e-863154a36777"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -460,6 +469,17 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""EnvironmentToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c8d2c2e-5edf-4154-afdd-cd28f7f200bd"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnvironmentToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -790,6 +810,94 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""SettingsToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""92047d9f-dd26-4f21-872b-c78fd11fb585"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""6e39ceaf-0502-4b62-831f-dcc7d7e3d58e"",
+                    ""path"": ""<XRController>{LeftHand}/{GripButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""73dad561-3762-4f69-9062-d345696fb8fd"",
+                    ""path"": ""<XRController>{LeftHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""96ff3a96-43ca-4ec1-9425-0cb1558f0356"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e7e8ec00-aed6-4f65-aec5-f5d9c34ae7fa"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""78a686fd-b7b9-4dea-862d-4b2360a3f306"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0cdae6b1-6a8d-4f52-8550-6333b905859b"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""15b86b0c-c47f-4c12-a642-c5b87ee0ff8b"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdjustFloor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -880,17 +988,6 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""509d8a47-1c5d-4457-98cd-751cdb062eaf"",
-                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Put"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""92d04daa-f03b-4963-ab2a-de66e3272841"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
@@ -921,6 +1018,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         m_TestKey_NextPlaceOption = m_TestKey.FindAction("NextPlaceOption", throwIfNotFound: true);
         m_TestKey_DeletePrefs = m_TestKey.FindAction("DeletePrefs", throwIfNotFound: true);
         m_TestKey_SettingsToggle = m_TestKey.FindAction("SettingsToggle", throwIfNotFound: true);
+        m_TestKey_AdjustFloor = m_TestKey.FindAction("AdjustFloor", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AnyInput = m_Gameplay.FindAction("AnyInput", throwIfNotFound: true);
@@ -1024,6 +1122,7 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_TestKey_NextPlaceOption;
     private readonly InputAction m_TestKey_DeletePrefs;
     private readonly InputAction m_TestKey_SettingsToggle;
+    private readonly InputAction m_TestKey_AdjustFloor;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestKey".
     /// </summary>
@@ -1092,6 +1191,10 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @SettingsToggle => m_Wrapper.m_TestKey_SettingsToggle;
         /// <summary>
+        /// Provides access to the underlying input action "TestKey/AdjustFloor".
+        /// </summary>
+        public InputAction @AdjustFloor => m_Wrapper.m_TestKey_AdjustFloor;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_TestKey; }
@@ -1159,6 +1262,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @SettingsToggle.started += instance.OnSettingsToggle;
             @SettingsToggle.performed += instance.OnSettingsToggle;
             @SettingsToggle.canceled += instance.OnSettingsToggle;
+            @AdjustFloor.started += instance.OnAdjustFloor;
+            @AdjustFloor.performed += instance.OnAdjustFloor;
+            @AdjustFloor.canceled += instance.OnAdjustFloor;
         }
 
         /// <summary>
@@ -1212,6 +1318,9 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
             @SettingsToggle.started -= instance.OnSettingsToggle;
             @SettingsToggle.performed -= instance.OnSettingsToggle;
             @SettingsToggle.canceled -= instance.OnSettingsToggle;
+            @AdjustFloor.started -= instance.OnAdjustFloor;
+            @AdjustFloor.performed -= instance.OnAdjustFloor;
+            @AdjustFloor.canceled -= instance.OnAdjustFloor;
         }
 
         /// <summary>
@@ -1553,6 +1662,13 @@ public partial class @MyInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSettingsToggle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AdjustFloor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAdjustFloor(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.

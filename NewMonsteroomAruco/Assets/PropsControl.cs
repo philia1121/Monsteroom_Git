@@ -15,7 +15,7 @@ public class PropsControl : MonoBehaviour
     public GameObject toyInMouth;
     public GameObject[] fakeProps;
 
-    public UnityEvent OnSwitchProps, OnDropProps, OnPickProps, OnGuarding;
+    public UnityEvent OnSwitchProps, OnDropProps, OnPickProps, OnGuarding, OffGuarding;
     public bool dogOccupied = false;
     void Awake()
     {
@@ -116,12 +116,17 @@ public class PropsControl : MonoBehaviour
         {
             item.interactRange.enabled = !occupied;
         }
+        CheckOccupiedReaction();
     }
     public void CheckOccupiedReaction()
     {
         if (dogOccupied)
         {
             OnGuarding.Invoke();
+        }
+        else
+        {
+            OffGuarding.Invoke();
         }
     }
 }

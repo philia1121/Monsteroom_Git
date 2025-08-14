@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class ModelAlignment : MonoBehaviour
 {
@@ -14,13 +15,38 @@ public class ModelAlignment : MonoBehaviour
     [SerializeField] private bool useSmoothDamp = false;
     [SerializeField] private float smoothTime = 0.2f;
     Vector3 velocity = Vector3.zero;
+    public bool useUpdateRate = false;
+    public float updateRate = 1;
+    void Awake()
+    {
+        myInputMap = new MyInputMap();
+    }
+    void OnEnable()
+    {
+        myInputMap.TestKey.Enable();
+        myInputMap.TestKey.ResetRecord.started += ctx => AlignPosition();
+        myInputMap.TestKey.ResetRecord.started += ctx => AlignRotation();
+    }
     void Start()
     {
         if (!follower)
             follower = this.transform;
+        if (useUpdateRate)
+        {
+            StartCoroutine(UpdateByRate());
+        }
     }
 
     void Update()
+    {
+        if (!useUpdateRate)
+        {
+            AlignPosition();
+            AlignRotation();
+        }
+
+    }
+    void AlignPosition()
     {
         if (alignPosition)
         {
@@ -32,7 +58,9 @@ public class ModelAlignment : MonoBehaviour
             );
             follower.transform.position = useSmoothDamp ? Vector3.SmoothDamp(transform.position, finalPos, ref velocity, smoothTime) : finalPos;
         }
-
+    }
+    void AlignRotation()
+    {
         if (alignRotation)
         {
             var newRot = IgnoreVector3Option.FilteredRotation(rotIgnore, target.rotation).eulerAngles;
@@ -41,6 +69,15 @@ public class ModelAlignment : MonoBehaviour
                 rotIgnore.ignoreY ? follower.rotation.eulerAngles.y : newRot.y,
                 rotIgnore.ignoreZ ? follower.rotation.eulerAngles.z : newRot.z
             ));
+        }
+    }
+    IEnumerator UpdateByRate()
+    {
+        while (true)
+        {
+            AlignPosition();
+            AlignRotation();
+            yield return new WaitForSeconds(updateRate);
         }
 
     }
